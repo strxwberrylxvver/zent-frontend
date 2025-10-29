@@ -17,7 +17,7 @@ function Header() {
         />
       </Link>
       <Link to ="/">
-      <h1> React First Build </h1>
+      <h1> Zent </h1>
       </Link>
       <div className="login">
         <p> Welcome Merrone </p>
