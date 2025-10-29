@@ -1,0 +1,31 @@
+header {
+  color: white;
+  background: pink;
+  display: flex;
+}
+
+header a img {
+  /* filter: invert(1); */
+  margin-left: 10px;
+  width: 80px;
+}
+
+header a h1 {
+  color: white;
+  margin-left: 10px;
+  font-size: 200%;
+}
+
+header a:hover,
+header a:active {
+  color: rgb(255, 159, 175);
+}
+
+header div.login {
+  flex: 1;
+  margin-right: 0.5rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

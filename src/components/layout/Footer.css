@@ -1,0 +1,13 @@
+footer {
+    height: 50px;
+    display:grid;
+    place-items: center;
+    border-top: 1px solid rgb(255, 153, 170);
+    background-color:  pink;
+}
+
+footer a{
+    font-size: 70%;
+    text-decoration: none;
+    color: rgb(255, 145, 163)
+}

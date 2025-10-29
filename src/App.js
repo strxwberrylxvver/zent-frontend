@@ -1,12 +1,21 @@
+import Layout from "./components/layout/Layout";
+import Home from "./components/pages/Home";
+import SignIn from "./components/pages/Home";
+import PageNotFound from "./components/pages/PageNotFound";
+import ContactUs from "./components/pages/ContactUs";
+import "./App.css";
 
 function App() {
-  //Initialisation--------------------
-  //Initialisation--------------------
-  //Initialisation--------------------
-  //Initialisation--------------------
+  // Properties---------------------------
+  // Hooks--------------------------------
+  // Context------------------------------
+  // Methods------------------------------
+  // View---------------------------------
 
   return (
-<p>Hello World</p>
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
 
