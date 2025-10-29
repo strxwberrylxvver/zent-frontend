@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { API } from "../api/API";
+
 function DashBoard() {
   // Initialisation-----------------------
   const loggedinUserID = "c41b8df7-8e57-4744-aa3c-215657baf916";
@@ -11,11 +13,10 @@ function DashBoard() {
   // Context------------------------------
   // Methods------------------------------
   const apiCall = async (endpoint) => {
-    const URL = "http://localhost:5001/api";
-    const endpointAddress = URL + endpoint;
-    const response = await fetch(endpointAddress);
-    const result = await response.json();
-    setTransactions(result);
+    const response = await API.get(endpoint);
+    response.isSuccess
+      ? setTransactions(response.result)
+      : setLoadingMessage(response.message);
   };
 
   useEffect(() => {
