@@ -27,17 +27,30 @@ function DashBoard() {
 
   return (
     <section>
-      <h1> Spending History</h1>;
+      <h1> Spending History</h1>
       {!transactions ? (
         <p>{loadingMessage}</p>
       ) : transactions.length === 0 ? (
         <p>No transactions.</p>
       ) : (
-        transactions.map((transaction) => (
-          <p key={transaction.TransactionID}>
-            {transaction.Name} {transaction.Amount} {transaction.Category}
-          </p>
-        ))
+        <table className="transactionsTable">
+          <thead>
+            <tr>
+              <th>Transaction Name</th>
+              <th>Amount</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions.map((transaction) => (
+              <tr key={transaction.TransactionID}>
+                <td>{transaction.Name}</td>
+                <td>{transaction.Amount}</td>
+                <td>{transaction.Category}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </section>
   );
