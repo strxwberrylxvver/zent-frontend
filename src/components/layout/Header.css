@@ -1,6 +1,6 @@
 header {
   color: white;
-  background: pink;
+  background: #afd1b0;
   display: flex;
 }
 
@@ -22,7 +22,7 @@ header a h1 {
 
 header a:hover,
 header a:active {
-  color: rgb(255, 159, 175);
+  color: #afd1b0;
 }
 
 header div.login {

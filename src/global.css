@@ -2,11 +2,27 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+
+  /* background-color: #FFEBDE; */
 }
-/* @font-face {
-  font-family: "headertext";
-  src: url("assets/fonts/Jersey10-Regular.ttf") format("ttf"),
-    url("assets/fonts/PixelifySans-VariableFont_wght.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
+@font-face {
+  font-family: "Jersey10";
+  src: url("components/assets/fonts/Jersey10-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PixelifySans";
+  src: url("components/assets/fonts/PixelifySans-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+h1,
+h2 {
+  font-family: "Jersey10", sans-serif;
+}
+h1 {
+  font-size: 40px;
+}
+/* p {
+  font-family: "PixelifySans", sans-serif;
 } */

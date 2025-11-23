@@ -28,7 +28,6 @@ function DashBoard() {
 
   return (
     <section>
-      <h1> Spending History</h1>
       {!transactions ? (
         <p>{loadingMessage}</p>
       ) : transactions.length === 0 ? (

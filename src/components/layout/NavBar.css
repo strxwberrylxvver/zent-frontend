@@ -1,7 +1,7 @@
 nav {
   display: flex;
   overflow: hidden;
-  background-color: pink;
+  background-color: #afd1b0;
 }
 
 nav div.navItem {
