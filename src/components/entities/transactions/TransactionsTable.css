@@ -41,3 +41,21 @@ tbody tr:hover {
   background-color: #afd1b0;
   cursor: pointer;
 }
+
+button {
+  background-color: #afd1b0;
+  border: 1px solid #afd1b0;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between; /* pushes button to the right */
+  align-items: center;
+  margin-bottom: 15px;
+}
