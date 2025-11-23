@@ -4,7 +4,7 @@ import DashBoard from "./components/pages/DashBoard";
 import SignIn from "./components/pages/SignIn";
 import PageNotFound from "./components/pages/PageNotFound";
 import ContactUs from "./components/pages/ContactUs";
-import "./App.css";
+import "./global.css";
 
 function App() {
   // Properties---------------------------

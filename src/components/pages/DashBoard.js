@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { API } from "../api/API";
+import TransactionsTable from "../entities/transactions/TransactionsTable";
 
 function DashBoard() {
   // Initialisation-----------------------
@@ -33,24 +34,7 @@ function DashBoard() {
       ) : transactions.length === 0 ? (
         <p>No transactions.</p>
       ) : (
-        <table className="transactionsTable">
-          <thead>
-            <tr>
-              <th>Transaction Name</th>
-              <th>Amount</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions.map((transaction) => (
-              <tr key={transaction.TransactionID}>
-                <td>{transaction.Name}</td>
-                <td>{transaction.Amount}</td>
-                <td>{transaction.Category}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TransactionsTable transactions={transactions} />
       )}
     </section>
   );
