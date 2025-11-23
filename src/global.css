@@ -1,0 +1,12 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+/* @font-face {
+  font-family: "headertext";
+  src: url("assets/fonts/Jersey10-Regular.ttf") format("ttf"),
+    url("assets/fonts/PixelifySans-VariableFont_wght.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+} */
