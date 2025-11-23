@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
+import DashboardIcon from "../assets/icons/DashboardIcon.png";
 
 function NavBar() {
   // Properties---------------------------
@@ -7,21 +8,28 @@ function NavBar() {
   // Context------------------------------
   // Methods------------------------------
 
-  const getLinkStyle =  ({isActive}) => (isActive ? "navSelected":null );
-
+  const getLinkStyle = ({ isActive }) => (isActive ? "navSelected" : null);
 
   // View---------------------------------
 
   return (
     <nav>
       <div className="navItem">
-        <NavLink to="/" className={getLinkStyle}>DashBoard</NavLink>
+        <img src={DashboardIcon} alt="dashboard" />
+
+        <NavLink to="/" className={getLinkStyle}>
+          DashBoard
+        </NavLink>
       </div>
       <div className="navItem">
-        <NavLink to="/signin"className={getLinkStyle}>Sign In</NavLink>
+        <NavLink to="/signin" className={getLinkStyle}>
+          Sign In
+        </NavLink>
       </div>
       <div className="navItem">
-        <NavLink to="/contact"className={getLinkStyle}>Contact Us</NavLink>
+        <NavLink to="/contact" className={getLinkStyle}>
+          Contact Us
+        </NavLink>
       </div>
     </nav>
   );

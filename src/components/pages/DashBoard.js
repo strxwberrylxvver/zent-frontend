@@ -28,6 +28,7 @@ function DashBoard() {
 
   return (
     <section>
+      <h1> Welcome, Merrone </h1>
       {!transactions ? (
         <p>{loadingMessage}</p>
       ) : transactions.length === 0 ? (
