@@ -2,16 +2,12 @@ import "./TransactionsTable.css";
 
 function TransactionsTable({ transactions }) {
 
-  // const handleAdd = () => setShowNewModuleForm
 
   return (
     <div className="transactionBox">
       <div className="tableHeader">
-      <h2>Spending History</h2>
-      {/* <Action.Tray>
-        <Action.Add showText onClick = {handleAdd} />
-      </Action.Tray> */}
-      <button> + </button>
+        <h2>Spending History</h2>
+        <button> + </button>
       </div>
       <table className="transactionTable">
         <thead>

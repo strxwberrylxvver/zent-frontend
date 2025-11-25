@@ -7,7 +7,6 @@ API.put = (endpoint, data) => callFetch(endpoint, "PUT", data);
 API.delete = (endpoint) => callFetch(endpoint, "DELETE", null);
 
 const callFetch = async (endpoint, method, dataObj) => {
-  //Build request object
 
   let requestObj = { method: method };
 
@@ -18,7 +17,6 @@ const callFetch = async (endpoint, method, dataObj) => {
       body: JSON.stringify(dataObj),
     };
 
-  //Call the fetch and process the return
   try {
     const endpointAddress = API_URL + endpoint;
     const response = await fetch(endpointAddress, requestObj);

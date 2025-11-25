@@ -3,14 +3,7 @@ import "./NavBar.css";
 import DashboardIcon from "../assets/icons/DashboardIcon.png";
 
 function NavBar() {
-  // Properties---------------------------
-  // Hooks--------------------------------
-  // Context------------------------------
-  // Methods------------------------------
-
   const getLinkStyle = ({ isActive }) => (isActive ? "navSelected" : null);
-
-  // View---------------------------------
 
   return (
     <nav>

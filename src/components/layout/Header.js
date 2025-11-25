@@ -3,12 +3,6 @@ import "./Header.css";
 import LotusIcon from "../assets/icons/LotusIcon.png";
 
 function Header() {
-  // Properties---------------------------
-  // Hooks--------------------------------
-  // Context------------------------------
-  // Methods------------------------------
-  // View---------------------------------
-
   return (
     <header>
       <Link to="/">
