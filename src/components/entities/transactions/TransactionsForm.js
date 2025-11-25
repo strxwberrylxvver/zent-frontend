@@ -4,6 +4,7 @@ import FormItem from "../../UI/Form";
 import { API } from "../../api/API";
 import Action from "../../UI/Actions";
 
+
 const emptyTransaction = {
   Name: "",
   Date: "",
@@ -18,6 +19,7 @@ export default function TransactionForm({
   onCancel,
   onSuccess,
 }) {
+
   const isValid = {
     Name: (name) => name.length > 3,
     Amount: (amount) => amount !== 0,
