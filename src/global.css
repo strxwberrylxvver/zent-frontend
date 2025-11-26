@@ -17,15 +17,23 @@
 }
 
 h1,
-h2 {
+h2,
+h3,
+thead,
+button {
   font-family: "Jersey10", sans-serif;
+  font-weight: 300;
 }
 h1 {
   font-size: 40px;
-  font-weight: 300;
 }
 h2 {
   font-size: 30px;
+}
+h3,
+thead,
+button {
+  font-size: 20px;
 }
 /* p {
   font-family: "PixelifySans", sans-serif;

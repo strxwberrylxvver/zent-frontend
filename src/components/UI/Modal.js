@@ -6,9 +6,9 @@ export function Modal({ show, title, children }) {
   return show ? (
     <div className="ModalOverlay">
       <div className="ModalPane">
-        <header>
+        <div className="title">
           <p>{title}</p>
-        </header>
+        </div>
         <main>{children}</main>
       </div>
     </div>

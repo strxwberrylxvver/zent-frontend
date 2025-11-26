@@ -3,7 +3,7 @@ export default function FormItem({ children, label, htmlFor, advice, error }) {
   return (
     <div className="FormItem">
       <label className="FormLabel" htmlFor={htmlFor}>
-        {label}
+      <h3>{label}</h3>
       </label>
       {advice && <p className="FormAdvice ">{advice}</p>}
       {children}

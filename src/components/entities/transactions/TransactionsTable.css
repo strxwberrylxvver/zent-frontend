@@ -1,13 +1,12 @@
-.transactionBox {
+/* .transactionBox {
   padding: 20px;
   background-color: rgba(175, 209, 176, 0.36);
-  /* border: 1px solid rgba(175, 209, 176, 0.36); */
   border: 1px solid #afd1b0;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px var(--shadow);
   transition: background-color 0.3s ease, color 0.3s ease;
-}
+} */
 
 .transactionTable {
   width: calc(100% - 250px);
@@ -19,10 +18,10 @@
 }
 
 thead {
-  /* background-color: #afd1b0; */
   color: var(--text-primary);
   text-align: left;
   transition: background-color 0.3s ease, color 0.3s ease;
+  
 }
 
 th,
@@ -31,11 +30,6 @@ td {
   border: 1px solid var(--border-color);
   transition: border-color 0.3s ease;
 }
-
-/* tbody tr:nth-child(even) {
-  background-color: pink;
-  transition: background-color 0.3s ease;
-} */
 
 tbody tr:hover {
   background-color: #afd1b0;
@@ -48,14 +42,17 @@ button {
   border-radius: 5px;
   cursor: pointer;
   color: black;
-  width: 30px;
-  height: 30px;
+  padding: 8px;
   font-weight: bold;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .tableHeader {
   display: flex;
-  justify-content: space-between; /* pushes button to the right */
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }

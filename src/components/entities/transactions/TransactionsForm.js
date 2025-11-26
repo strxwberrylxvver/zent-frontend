@@ -4,7 +4,6 @@ import FormItem from "../../UI/Form";
 import { API } from "../../api/API";
 import Action from "../../UI/Actions";
 
-
 const emptyTransaction = {
   Name: "",
   Date: "",
@@ -19,7 +18,6 @@ export default function TransactionForm({
   onCancel,
   onSuccess,
 }) {
-
   const isValid = {
     Name: (name) => name.length > 3,
     Amount: (amount) => amount !== 0,
@@ -73,7 +71,7 @@ export default function TransactionForm({
         <input
           type="text"
           name="Name"
-          placeholder="Please enter the name of the transaction"
+          placeholder="Netflix..."
           value={transaction.Name}
           onChange={handleChange}
         />
