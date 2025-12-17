@@ -19,8 +19,11 @@ export default function TransactionForm({
   onSuccess,
 }) {
   const isValid = {
-    Name: (name) => name.length > 3,
-    Amount: (amount) => amount !== 0,
+    Name: (name) => name.trim().length > 3,
+    Date: (date) => Boolean(date),
+    Amount: (amount) => amount !== 0 && !isNaN(amount),
+    Category: (cat) => Boolean(cat),
+    PaymentMethod: (method) => Boolean(method),
   };
   const errorMessage = {
     Name: "Your transaction name is too short",
@@ -53,7 +56,23 @@ export default function TransactionForm({
     });
   };
 
-  const handleSubmit = async () => {
+  const validateAll = () => {
+    const newErrors = {};
+
+    for (const key in isValid) {
+      const value = transaction[key];
+      newErrors[key] = isValid[key](value) ? null : errorMessage[key];
+    }
+
+    setErrors(newErrors);
+
+    return Object.values(newErrors).every((e) => e === null);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const isFormValid = validateAll();
+    if (!isFormValid) return;
     console.log(`Transaction=[${JSON.stringify(transaction)}]`);
     const result = await API.post(postTransactionEndpoint, transaction);
     if (result.isSuccess) onSuccess();
@@ -122,6 +141,7 @@ export default function TransactionForm({
           value={transaction.Category}
           onChange={handleChange}
         >
+          <option value="">-- Choose a category --</option>
           {[
             "Entertainment",
             "Groceries",
@@ -130,9 +150,9 @@ export default function TransactionForm({
             "Income",
             "Rent",
             "Other",
-          ].map((method) => (
-            <option key={method} value={method}>
-              {method}
+          ].map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
             </option>
           ))}
         </select>
@@ -150,6 +170,7 @@ export default function TransactionForm({
           value={transaction.PaymentMethod}
           onChange={handleChange}
         >
+          <option value="">-- Choose a payment method --</option>
           {["Credit Card", "Debit Card", "Cash", "Bank Transfer"].map(
             (method) => (
               <option key={method} value={method}>
@@ -162,7 +183,11 @@ export default function TransactionForm({
 
       <br></br>
       <Action.Tray>
-        <Action.Submit showText onClick={handleSubmit} />
+        <Action.Submit
+          showText
+          buttonText="Submit form"
+          onClick={handleSubmit}
+        />
         <Action.Cancel showText buttonText="Cancel form" onClick={onCancel} />
       </Action.Tray>
     </form>

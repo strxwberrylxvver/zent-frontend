@@ -7,7 +7,7 @@ export default function FormItem({ children, label, htmlFor, advice, error }) {
       </label>
       {advice && <p className="FormAdvice ">{advice}</p>}
       {children}
-      {error && <p className="FormError">{error}</p>}
+      <div className = "error">{error && <p className="FormError">{error}</p>}</div>
     </div>
   );
 }

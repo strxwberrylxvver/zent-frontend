@@ -1,13 +1,11 @@
 import "./TransactionsTable.css";
 
-function TransactionsTable({ transactions }) {
-
-
+function TransactionsTable({ transactions, actions }) {
   return (
     <div className="transactionBox">
       <div className="tableHeader">
         <h2>Spending History</h2>
-        <button> + </button>
+        {actions}
       </div>
       <table className="transactionTable">
         <thead>
@@ -21,7 +19,7 @@ function TransactionsTable({ transactions }) {
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transactions.TransactionID}>
+            <tr key={transaction.TransactionID}>
               <td>{transaction.Name}</td>
               <td>{transaction.Date}</td>
               <td>{transaction.Amount}</td>
