@@ -16,8 +16,10 @@ const emptyTransaction = {
 export default function TransactionForm({
   initialTransaction = emptyTransaction,
   onCancel,
-  onSuccess,
+  onSuccess,reloadTransactions
 }) {
+  const isEdit = Boolean(initialTransaction.TransactionID);
+
   const isValid = {
     Name: (name) => name.trim().length > 3,
     Date: (date) => Boolean(date),
@@ -40,7 +42,6 @@ export default function TransactionForm({
       {}
     )
   );
-  const postTransactionEndpoint = "/transactions";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -71,10 +72,18 @@ export default function TransactionForm({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const isFormValid = validateAll();
-    if (!isFormValid) return;
-    console.log(`Transaction=[${JSON.stringify(transaction)}]`);
-    const result = await API.post(postTransactionEndpoint, transaction);
+    if (!validateAll()) return;
+    let result;
+    if (isEdit) {
+      result = await API.put(
+        `/transactions/${transaction.TransactionID}`,
+        transaction
+      );
+      reloadTransactions();
+    
+    } else {
+      result = await API.post("/transactions", transaction);
+    }
     if (result.isSuccess) onSuccess();
     else alert(result.message);
   };
@@ -183,12 +192,8 @@ export default function TransactionForm({
 
       <br></br>
       <Action.Tray>
-        <Action.Submit
-          showText
-          buttonText="Submit form"
-          onClick={handleSubmit}
-        />
-        <Action.Cancel showText buttonText="Cancel form" onClick={onCancel} />
+        <Action.Submit showText buttonText="Submit" onClick={handleSubmit} />
+        <Action.Cancel showText buttonText="Cancel" onClick={onCancel} />
       </Action.Tray>
     </form>
   );

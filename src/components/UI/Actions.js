@@ -81,7 +81,7 @@ export function Delete({ onClick, showText = false, buttonText = "Delete" }) {
 
 Edit.propTypes = ActionPropTypes;
 
-export function Edit({ onClick, showText = false, buttonText = "Modify" }) {
+export function Edit({ onClick, showText = false, buttonText = "Edit" }) {
   return (
     <Action
       buttonText={buttonText}

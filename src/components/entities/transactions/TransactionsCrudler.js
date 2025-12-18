@@ -1,5 +1,6 @@
 import "./TransactionsCrudler.css";
 import { useState } from "react";
+import { API } from "../../api/API.js";
 import useLoad from "../../api/useLoad.js";
 import TransactionForm from "./TransactionsForm.js";
 import TransactionView from "./TransactionView.js";
@@ -13,6 +14,12 @@ export default function TransactionsCrudler({ endpoint }) {
   const [selectedTransaction, setSelectedTransaction] = useState(null);
   const [mode, setMode] = useState("add");
 
+  const handleDelete = async (id) => {
+    const response = await API.delete(`${"/transactions"}/${id}`);
+    loadTransactions(endpoint);
+    handleCancel();
+  };
+
   const handleAdd = () => {
     setSelectedTransaction(null);
     setMode("add");
@@ -24,10 +31,12 @@ export default function TransactionsCrudler({ endpoint }) {
     setMode("view");
     openDetails();
   };
-  
-    const handleCancel = () => closeDetails();
+
+  const handleCancel = () => closeDetails();
+
   const handleSuccess = async () => {
     closeDetails();
+    setSelectedTransaction(null);
     await loadTransactions(endpoint);
   };
 
@@ -38,47 +47,57 @@ export default function TransactionsCrudler({ endpoint }) {
       ) : transactions.length === 0 ? (
         <p>No transactions.</p>
       ) : (
-        <TransactionsTable transactions={transactions} onSelect={handleSelect} actions ={<Action.Tray>
-          <Action.Add showText onClick={handleAdd} />
-        </Action.Tray>} />
+        <TransactionsTable
+          transactions={transactions}
+          onSelect={handleSelect}
+          actions={
+            <Action.Tray>
+              <Action.Add showText onClick={handleAdd} />
+            </Action.Tray>
+          }
+        />
       )}
       {showDetails && (
-  <Modal
-    show={showDetails}
-    title={
-      mode === "add"
-        ? <h1>Add new transaction</h1>
-        : mode === "view"
-        ? <h1>Transaction details</h1>
-        : <h1>Edit transaction</h1>
-    }
-  >
-    {mode === "add" && (
-      <TransactionForm
-        onCancel={closeDetails}
-        onSuccess={handleSuccess}
-      />
-    )}
+        <Modal
+          show={showDetails}
+          title={
+            mode === "add" ? (
+              <h1>Add new transaction</h1>
+            ) : mode === "view" ? (
+              <h1>Transaction details</h1>
+            ) : (
+              <h1>Edit transaction</h1>
+            )
+          }
+        >
+          {mode === "add" && (
+            <TransactionForm
+              onCancel={handleCancel}
+              onSuccess={handleSuccess}
+            />
+          )}
 
-    {mode === "view" && selectedTransaction && (
-      <TransactionView
-        transaction={selectedTransaction}
-        onEdit={() => setMode("edit")}
-        onDelete={() => alert("Delete coming soon")}
-        onClose={closeDetails}
-      />
-    )}
+          {mode === "view" && selectedTransaction && (
+            <TransactionView
+              transaction={selectedTransaction}
+              onEdit={() => setMode("edit")}
+              onDelete={() => handleDelete(selectedTransaction.TransactionID)}
+              onClose={handleCancel}
+            />
+          )}
 
-    {mode === "edit" && selectedTransaction && (
-      <TransactionForm
-        initialTransaction={selectedTransaction}
-        onCancel={() => setMode("view")}
-        onSuccess={handleSuccess}
-      />
-    )}
-  </Modal>
-)}
-
+          {mode === "edit" && selectedTransaction && (
+            <TransactionForm
+              initialTransaction={selectedTransaction}
+              onCancel={() => setMode("view")}
+              onSuccess={handleSuccess}
+              reloadTransactions={() => {
+                loadTransactions(endpoint);
+              }}
+            />
+          )}
+        </Modal>
+      )}
     </section>
   );
 }
