@@ -1,6 +1,14 @@
 import "./TransactionsTable.css";
 
-function TransactionsTable({ transactions, actions }) {
+function TransactionsTable({ transactions, onSelect, actions }) {
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  };
   return (
     <div className="transactionBox">
       <div className="tableHeader">
@@ -19,9 +27,12 @@ function TransactionsTable({ transactions, actions }) {
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transaction.TransactionID}>
+            <tr
+              key={transaction.TransactionID}
+              onClick={() => onSelect(transaction)}
+            >
               <td>{transaction.Name}</td>
-              <td>{transaction.Date}</td>
+              <td>{formatDate(transaction.Date)}</td>
               <td>{transaction.Amount}</td>
               <td>{transaction.Category}</td>
               <td>{transaction.PaymentMethod}</td>

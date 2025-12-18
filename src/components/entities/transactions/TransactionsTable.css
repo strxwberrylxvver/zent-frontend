@@ -1,9 +1,25 @@
 .transactionTable {
-  width: calc(100% - 250px);
+  width: 100%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: black;
+}
+
+.transactionBox {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thick;
+  scrollbar-color: #afd1b0 rgba(175, 209, 176, 0.2);
+}
+
+.transactionTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(175, 209, 176, 0.4);
+  backdrop-filter: blur(6px);
+  
 }
 
 thead {

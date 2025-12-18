@@ -66,7 +66,34 @@ export function Submit({ onClick, showText = false, buttonText = "Submit" }) {
     ></Action>
   );
 }
+
+Delete.propTypes = ActionPropTypes;
+
+export function Delete({ onClick, showText = false, buttonText = "Delete" }) {
+  return (
+    <Action
+      buttonText={buttonText}
+      onClick={onClick}
+      showText={showText}
+    ></Action>
+  );
+}
+
+Edit.propTypes = ActionPropTypes;
+
+export function Edit({ onClick, showText = false, buttonText = "Modify" }) {
+  return (
+    <Action
+      buttonText={buttonText}
+      onClick={onClick}
+      showText={showText}
+    ></Action>
+  );
+}
+
 Action.Tray = Tray;
 Action.Add = Add;
 Action.Cancel = Cancel;
 Action.Submit = Submit;
+Action.Delete = Delete;
+Action.Edit = Edit;
