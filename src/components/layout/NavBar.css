@@ -1,19 +1,23 @@
 nav {
   display: flex;
   overflow: hidden;
-  background-color: pink;
+  background-color: #afd1b0;
+  font-family: "Jersey10", sans-serif;
+  font-size: 30px;
 }
-
+img {
+  /* padding: 5px; */
+}
 nav div.navItem {
   padding: 10px;
 }
 nav div.navItem:hover {
-  background-color: rgb(255, 236, 239);
+  background-color: rgb(158, 193, 151);
 }
 nav div.navItem a {
   color: white;
   text-decoration: none;
 }
 nav div.navItem a.navSelected {
-  color: rgb(255, 84, 113);
+  color: #447445;
 }

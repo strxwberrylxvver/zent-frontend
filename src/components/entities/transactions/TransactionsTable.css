@@ -1,17 +1,28 @@
-.taskTable {
-  width: calc(100% - 250px);
+.transactionTable {
+  width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
   font-family: Arial, sans-serif;
   font-size: 14px;
-  color: pink;
-  background-color: pink;
-  box-shadow: 0 0 10px var(--shadow);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: black;
+}
+
+.transactionBox {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thick;
+  scrollbar-color: #afd1b0 rgba(175, 209, 176, 0.2);
+}
+
+.transactionTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(175, 209, 176, 0.4);
+  backdrop-filter: blur(6px);
+  
 }
 
 thead {
-  background-color: pink;
   color: var(--text-primary);
   text-align: left;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -24,12 +35,31 @@ td {
   transition: border-color 0.3s ease;
 }
 
-tbody tr:nth-child(even) {
-  background-color: pink;
-  transition: background-color 0.3s ease;
+tbody tr:hover {
+  background-color: #afd1b0;
+  cursor: pointer;
 }
 
-tbody tr:hover {
-  background-color: pink;
+.ActionTray {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #afd1b0;
+  border: 1px solid #afd1b0;
+  border-radius: 5px;
   cursor: pointer;
+  color: black;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

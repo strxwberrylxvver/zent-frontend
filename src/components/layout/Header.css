@@ -1,6 +1,6 @@
 header {
   color: white;
-  background: pink;
+  background: #afd1b0;
   display: flex;
 }
 
@@ -16,13 +16,13 @@ header a img {
 
 header a h1 {
   color: white;
-  margin-left: 10px;
-  font-size: 200%;
+  margin-left: 20px;
+  font-size: 70px;
 }
 
 header a:hover,
 header a:active {
-  color: rgb(255, 159, 175);
+  color: #afd1b0;
 }
 
 header div.login {

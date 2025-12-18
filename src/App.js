@@ -7,12 +7,6 @@ import ContactUs from "./components/pages/ContactUs";
 import "./global.css";
 
 function App() {
-  // Properties---------------------------
-  // Hooks--------------------------------
-  // Context------------------------------
-  // Methods------------------------------
-  // View---------------------------------
-
   return (
     <BrowserRouter>
       <Layout>
