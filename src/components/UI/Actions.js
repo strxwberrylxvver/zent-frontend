@@ -91,9 +91,35 @@ export function Edit({ onClick, showText = false, buttonText = "Edit" }) {
   );
 }
 
+Yes.propTypes = ActionPropTypes;
+
+export function Yes({ onClick, showText = false, buttonText = "Yes" }) {
+  return (
+    <Action
+      buttonText={buttonText}
+      onClick={onClick}
+      showText={showText}
+    ></Action>
+  );
+}
+
+No.propTypes = ActionPropTypes;
+
+export function No({ onClick, showText = false, buttonText = "No" }) {
+  return (
+    <Action
+      buttonText={buttonText}
+      onClick={onClick}
+      showText={showText}
+    ></Action>
+  );
+}
+
 Action.Tray = Tray;
 Action.Add = Add;
 Action.Cancel = Cancel;
 Action.Submit = Submit;
 Action.Delete = Delete;
 Action.Edit = Edit;
+Action.Yes = Yes;
+Action.No = No;
