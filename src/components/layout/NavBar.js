@@ -9,21 +9,31 @@ function NavBar() {
     <nav>
       <div className="navItem">
         <img src={DashboardIcon} alt="dashboard" />
-
-        <NavLink to="/" className={getLinkStyle}>
+        <NavLink to="/dashboard" className={getLinkStyle}>
           DashBoard
         </NavLink>
       </div>
       <div className="navItem">
-        <NavLink to="/signin" className={getLinkStyle}>
-          Sign In
+        <NavLink to="/budgets" className={getLinkStyle}>
+          Budgets
         </NavLink>
       </div>
       <div className="navItem">
-        <NavLink to="/contact" className={getLinkStyle}>
-          Contact Us
+        <NavLink to="/goals" className={getLinkStyle}>
+          Goals
         </NavLink>
       </div>
+      <div className="navItem">
+        <NavLink to="/analytics" className={getLinkStyle}>
+          Analytics
+        </NavLink>
+      </div>
+      <div className="navItem">
+        <NavLink to="/sharedbills" className={getLinkStyle}>
+          Shared Bills
+        </NavLink>
+      </div>
+      
     </nav>
   );
 }
