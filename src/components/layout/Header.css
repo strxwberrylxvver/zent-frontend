@@ -2,34 +2,52 @@ header {
   color: white;
   background: #afd1b0;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 header a {
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+header a:hover {
+  opacity: 0.8;
 }
 
 header a img {
-  /* filter: invert(1); */
-  margin-left: 10px;
-  width: 80px;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin: 0;
+  transition: width 0.3s ease, height 0.3s ease;
+  display: block;
 }
 
+.sidebar.closed header a img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+.sidebar:not(.closed) header {
+  padding: 15px 10px;
+}
 header a h1 {
   color: white;
-  margin-left: 20px;
-  font-size: 70px;
+  margin: 0;
+  font-size: 65px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-header a:hover,
-header a:active {
-  color: #afd1b0;
-}
-
-header div.login {
-  flex: 1;
-  margin-right: 0.5rem;
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+.sidebar.closed header a h1 {
+  opacity: 0;
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
 }

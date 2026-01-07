@@ -14,23 +14,6 @@ export default function TransactionsCrudler({ endpoint }) {
   const [selectedTransaction, setSelectedTransaction] = useState(null);
   const [mode, setMode] = useState("add");
 
-  // const handleDelete = async (id) => {
-  //   const response = await API.delete(`${"/transactions"}/${id}`);
-  //   loadTransactions(endpoint);
-  //   handleCancel();
-  // };
-  // const showDeleteModal = (id) => showDetails(
-  //   {
-  //     show: true,
-  //     title: "Confirmation Request",
-  //     content: <h3> Are you sure you want to delete this transaction? </h3>,
-  //     actions: [
-  //       <Action.Yes showText onClick={()=>handleDelete(id)} />,
-  //       <Action.No showText onClick={closeDetails} />
-  //     ]
-  //   }
-  // );
-
   const handleAdd = () => {
     setSelectedTransaction(null);
     setMode("add");

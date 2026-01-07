@@ -1,23 +1,57 @@
 nav {
   display: flex;
-  overflow: hidden;
+  flex-direction: column;
   background-color: #afd1b0;
-  font-family: "Jersey10", sans-serif;
-  font-size: 30px;
-}
-img {
-  /* padding: 5px; */
+  /* font-family: "Jersey10", sans-serif; */
+  /* font-size: 24px; */
+  width: 100%;
 }
 nav div.navItem {
-  padding: 10px;
+  width: 100%;
+  transition: all 0.3s ease;
 }
+
 nav div.navItem:hover {
-  background-color: rgb(158, 193, 151);
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
 }
+
 nav div.navItem a {
   color: white;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  transition: all 0.3s ease;
 }
+
+.sidebar.closed nav div.navItem a {
+  justify-content: center;
+  padding: 15px 10px;
+  gap: 0;
+}
+
+.nav-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  min-width: 30px;
+  flex-shrink: 0;
+}
+
+.nav-text {
+  white-space: nowrap;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.closed .nav-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
 nav div.navItem a.navSelected {
   color: #447445;
+  font-weight: bold;
 }
