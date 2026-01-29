@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./GoalsCard.css";
 
 function GoalsCard({ goal }) {
@@ -10,6 +9,7 @@ function GoalsCard({ goal }) {
       year: "numeric",
     });
   };
+  const progress = (goal.SavedAmount / goal.TargetAmount) * 100;
   return (
     <div className="goalsCard">
       <div className="goalHeader">
@@ -23,13 +23,12 @@ function GoalsCard({ goal }) {
           £{goal.SavedAmount} / £{goal.TargetAmount} saved
         </h3>
       </div>
+      <div className="progressBar">
+        <div className="progressFill" style={{ width: `${progress}%` }} />
+      </div>
     </div>
   );
 }
 
-GoalsCard.prototypes = {
-  goal: PropTypes.shape({
-    GoalName: PropTypes.string.isRequired,
-  }).isRequired,
-};
+
 export default GoalsCard;

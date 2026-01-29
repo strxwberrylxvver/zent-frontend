@@ -1,19 +1,58 @@
 .goalsCard {
+  flex: 1;
+  min-width: 220px;
+  max-width: 300px;
+
   padding: 20px;
   background-color: rgba(175, 209, 176, 0.36);
-  border: 1px solid #afd1b0;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px var(--shadow);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid #b7d4b3;
+  border-radius: 16px;
   margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .goalsCard:hover {
   background-color: #afd1b0;
   cursor: pointer;
+  transform: translateY(-3px);
+  transition: transform 0.2s ease;
 }
 
-.goalsHeader {
-  font-size: 10;
+.goalHeader h3 {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.goalAmount h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3b3b3b;
+  margin-top: 15px;
+  text-align: right;
+}
+
+.goalDate h3 {
+  font-size: 18px;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+.progressBar {
+  height: 15px;
+  background-color: #cfe3cc;
+  border-radius: 20px;
+  overflow: hidden;
+
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #8fbc8f;
+  border-radius: 20px;
+  transition: width 0.3s ease;
 }

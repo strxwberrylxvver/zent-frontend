@@ -10,5 +10,6 @@
 }
 .goalsCards {
   display: flex;
-  flex: 1;
+  gap: 20px;
+  flex-wrap: wrap;
 }
