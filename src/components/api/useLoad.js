@@ -3,6 +3,7 @@ import { API } from "./API";
 
 export default function useLoad(endpoint) {
   const [transactions, setTransactions] = useState(null);
+  const [goals, setGoals] = useState(null);
   const [loadingMessage, setLoadingMessage] = useState("Loading records...");
 
   const loadTransactions = async (endpoint) => {
@@ -12,7 +13,24 @@ export default function useLoad(endpoint) {
       : setLoadingMessage(response.message);
   };
 
-  useEffect(() => { loadTransactions(endpoint) }, [endpoint]);
+  const loadGoals = async (endpoint) => {
+    const response = await API.get(endpoint);
+    response.isSuccess
+      ? setGoals(response.result)
+      : setLoadingMessage(response.message);
+  };
+  useEffect(() => {
+    loadTransactions(endpoint);
+  }, [endpoint]);
 
-  return [transactions, setTransactions, loadingMessage, loadTransactions];
+  return [
+    transactions,
+    setTransactions,
+    loadingMessage,
+    loadTransactions,
+    goals,
+    setGoals,
+    loadingMessage,
+    loadGoals,
+  ];
 }
