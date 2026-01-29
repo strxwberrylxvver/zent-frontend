@@ -1,5 +1,5 @@
 function Goals() {
-    return <h1>Spending Goals</h1>;
+    return <h1>Savings Goals</h1>;
   }
   
   export default Goals;
