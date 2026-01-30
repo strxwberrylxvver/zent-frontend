@@ -5,8 +5,10 @@ function Goals() {
   const goalsendpoint = `/savingsgoals/users/${loggedinUserID}`;
   return (
     <section>
-      <h1>Savings Goals</h1>
-      <GoalsCrudler endpoint={goalsendpoint} />
+      <section className="goalsPageView">
+        <h1>Savings Goals</h1>
+        <GoalsCrudler endpoint={goalsendpoint} showTitle={false}/>
+      </section>
     </section>
   );
 }

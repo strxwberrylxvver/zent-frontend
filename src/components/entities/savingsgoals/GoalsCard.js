@@ -1,6 +1,6 @@
 import "./GoalsCard.css";
 
-function GoalsCard({ goal, onSelect, actions }) {
+function GoalsCard({ goal, onClick }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-GB", {
@@ -11,7 +11,7 @@ function GoalsCard({ goal, onSelect, actions }) {
   };
   const progress = (goal.SavedAmount / goal.TargetAmount) * 100;
   return (
-    <div className="goalsCard">
+    <div className="goalsCard" onClick={onClick}>
       <div className="goalHeader">
         <h3> {goal.GoalName}</h3>
       </div>
@@ -29,6 +29,5 @@ function GoalsCard({ goal, onSelect, actions }) {
     </div>
   );
 }
-
 
 export default GoalsCard;

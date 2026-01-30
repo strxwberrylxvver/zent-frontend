@@ -1,7 +1,7 @@
 .goalsCard {
   flex: 1;
-  min-width: 220px;
-  max-width: 300px;
+  min-width: 321px;
+  max-width: 321px;
 
   padding: 20px;
   background-color: rgba(175, 209, 176, 0.36);
@@ -15,6 +15,17 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
+.goalsPageView .goalsCard {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+/* 
+IMPORTANT!!!!!!! -----------------------------------------------------------
+for the goals page change the min & max width styling so its long like the UI
+DELETE THIS ONCE COMPLETE !!!!!!!
+-----------------------------------------------------------------------------
+ */
 .goalsCard:hover {
   background-color: #afd1b0;
   cursor: pointer;
@@ -47,7 +58,6 @@
   background-color: #cfe3cc;
   border-radius: 20px;
   overflow: hidden;
-
 }
 
 .progressFill {

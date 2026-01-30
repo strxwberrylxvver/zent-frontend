@@ -8,8 +8,3 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 25px;
 }
-.goalsCards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}

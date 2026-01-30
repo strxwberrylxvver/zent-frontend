@@ -18,7 +18,12 @@ export default function GoalForm({
   onSuccess,
   reloadGoals,
 }) {
-  const isEdit = Boolean(initialGoal.goalID);
+  const isEdit = Boolean(initialGoal.GoalID);
+
+  const formatDateForInput = (dateString) => {
+    if (!dateString) return "";
+    return dateString.split("T")[0];
+  };
 
   const isValid = {
     GoalName: (name) => name.trim().length > 2,
@@ -33,7 +38,10 @@ export default function GoalForm({
     TargetDate: "Your date is invalid",
   };
 
-  const [goal, setgoal] = useState(initialGoal);
+  const [goal, setgoal] = useState({
+    ...initialGoal,
+    TargetDate: formatDateForInput(initialGoal.TargetDate),
+  });
   const [errors, setErrors] = useState(
     Object.keys(initialGoal).reduce(
       (accum, key) => ({ ...accum, [key]: null }),
@@ -73,10 +81,10 @@ export default function GoalForm({
     if (!validateAll()) return;
     let result;
     if (isEdit) {
-      result = await API.put(`/goals/${goal.goalID}`, goal);
+      result = await API.put(`/savingsgoals/${goal.GoalID}`, goal);
       reloadGoals();
     } else {
-      result = await API.post("/goals", goal);
+      result = await API.post("/savingsgoals", goal);
     }
     if (result.isSuccess) onSuccess();
     else alert(result.message);

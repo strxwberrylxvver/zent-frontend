@@ -1,14 +1,14 @@
 import useLoad from "../../api/useLoad";
 import { useState } from "react";
 import { API } from "../../api/API.js";
-import GoalsCard from "./GoalsCard";
 import GoalsForm from "./GoalsForm";
 import GoalView from "./GoalView.js";
 import Action from "../../UI/Actions.js";
 import { useModal, Modal } from "../../UI/Modal.js";
 import "./GoalsCrudler.css";
+import GoalsCardContainer from "./GoalsCardContainer.js";
 
-function GoalsCrudler({ endpoint }) {
+function GoalsCrudler({ endpoint, showTitle = true }) {
   const [goals, , loadingMessage, loadGoals] = useLoad(endpoint);
   const [showDetails, , openDetails, closeDetails] = useModal(false);
   const [selectedGoal, setSelectedGoal] = useState(null);
@@ -35,25 +35,22 @@ function GoalsCrudler({ endpoint }) {
   };
   return (
     <section className="goalsCrudler">
-      <h2>Savings Goals</h2>
+      {showTitle && <h2>Savings Goals</h2>}
       <div className="goalsCards">
         {!goals ? (
           <p>{loadingMessage}</p>
         ) : goals.length === 0 ? (
           <p>No goals.</p>
         ) : (
-          goals.map((goal) => (
-            <GoalsCard
-              key={goal.GoalID}
-              goal={goal}
-              onSelect={handleSelect}
-              actions={
-                <Action.Tray>
-                  <Action.Add showText onClick={handleAdd} />
-                </Action.Tray>
-              }
-            />
-          ))
+          <GoalsCardContainer
+            goals={goals}
+            onSelect={handleSelect}
+            actions={
+              <Action.Tray>
+                <Action.Add showText onClick={handleAdd} />
+              </Action.Tray>
+            }
+          />
         )}
         {showDetails && (
           <Modal
