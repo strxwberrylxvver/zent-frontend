@@ -1,6 +1,6 @@
 import "./GoalsCard.css";
 
-function GoalsCard({ goal }) {
+function GoalsCard({ goal, onSelect, actions }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-GB", {
