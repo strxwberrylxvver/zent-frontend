@@ -33,7 +33,7 @@ const ActionPropTypes = {
 
 Add.propTypes = ActionPropTypes;
 
-export function Add({ onClick, showText = false, buttonText = "Add" }) {
+export function Add({ onClick, showText = false, buttonText = "+" }) {
   return (
     <Action
       buttonText={buttonText}
