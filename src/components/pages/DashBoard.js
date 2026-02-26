@@ -8,7 +8,7 @@ function DashBoard() {
 
   return (
     <section>
-      <h1>Welcome, Merrone</h1>
+      <h1>Welcome back, Merrone</h1>
       <TransactionsCrudler endpoint={transactionsendpoint} />
       <GoalsCrudler endpoint={goalsendpoint} />
     </section>

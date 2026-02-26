@@ -4,6 +4,7 @@ import { API } from "./API";
 export default function useLoad(endpoint) {
   const [transactions, setTransactions] = useState(null);
   const [goals, setGoals] = useState(null);
+  const [budgets, setBudgets] = useState(null);
   const [loadingMessage, setLoadingMessage] = useState("Loading records...");
 
   const loadTransactions = async (endpoint) => {
@@ -19,6 +20,13 @@ export default function useLoad(endpoint) {
       ? setGoals(response.result)
       : setLoadingMessage(response.message);
   };
+
+  const loadBudgets = async (endpoint) => {
+    const response = await API.get(endpoint);
+    response.isSuccess
+      ? setBudgets(response.result)
+      : setLoadingMessage(response.message);
+  };
   useEffect(() => {
     loadTransactions(endpoint);
   }, [endpoint]);
@@ -30,7 +38,9 @@ export default function useLoad(endpoint) {
     loadTransactions,
     goals,
     setGoals,
-    loadingMessage,
     loadGoals,
+    budgets,
+    setBudgets,
+    loadBudgets,
   ];
 }
