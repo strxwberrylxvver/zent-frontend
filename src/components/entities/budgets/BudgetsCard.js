@@ -1,4 +1,4 @@
-function BudgetsCard(budget) {
+function BudgetsCard({budget}) {
   return (
     <div className="budgetCard">
       <div className="budgetHeader">
