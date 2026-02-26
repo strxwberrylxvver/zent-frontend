@@ -7,6 +7,7 @@ function Budgets() {
     <section>
       <section className="budgetsPageView">
         <h1>Budgets</h1>
+        <h3>Create and Track Budgets</h3>
         <BudgetsCrudler endpoint={budgetsendpoint} />
       </section>
     </section>
