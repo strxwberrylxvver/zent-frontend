@@ -2,45 +2,19 @@ import { useEffect, useState } from "react";
 import { API } from "./API";
 
 export default function useLoad(endpoint) {
-  const [transactions, setTransactions] = useState(null);
-  const [goals, setGoals] = useState(null);
-  const [budgets, setBudgets] = useState(null);
+  const [data, setData] = useState(null);
   const [loadingMessage, setLoadingMessage] = useState("Loading records...");
 
-  const loadTransactions = async (endpoint) => {
+  const load = async (endpoint) => {
     const response = await API.get(endpoint);
     response.isSuccess
-      ? setTransactions(response.result)
+      ? setData(response.result)
       : setLoadingMessage(response.message);
   };
 
-  const loadGoals = async (endpoint) => {
-    const response = await API.get(endpoint);
-    response.isSuccess
-      ? setGoals(response.result)
-      : setLoadingMessage(response.message);
-  };
-
-  const loadBudgets = async (endpoint) => {
-    const response = await API.get(endpoint);
-    response.isSuccess
-      ? setBudgets(response.result)
-      : setLoadingMessage(response.message);
-  };
   useEffect(() => {
-    loadTransactions(endpoint);
+    load(endpoint);
   }, [endpoint]);
 
-  return [
-    transactions,
-    setTransactions,
-    loadingMessage,
-    loadTransactions,
-    goals,
-    setGoals,
-    loadGoals,
-    budgets,
-    setBudgets,
-    loadBudgets,
-  ];
+  return [data, setData, loadingMessage, load];
 }
