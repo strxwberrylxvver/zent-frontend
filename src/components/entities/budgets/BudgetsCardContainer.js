@@ -1,4 +1,6 @@
 import BudgetsCard from "./BudgetsCard";
+import "./BudgetsCardContainer.css";
+
 
 function BudgetsCardContainer({ budgets }) {
     return (

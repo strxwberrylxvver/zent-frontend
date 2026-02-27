@@ -1,0 +1,12 @@
+.budgetsCardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  @media (max-width: 700px) {
+    .budgetsCardContainer {
+      grid-template-columns: 1fr;
+    }
+  }
+  

@@ -1,0 +1,16 @@
+.budgetsCrudler {
+  width: 100%;
+}
+
+.budgetsCards {
+  width: 100%;
+}
+
+.budgetsCards > p {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+  padding: 24px 0;
+}
+.Action {
+  margin-left: auto;
+}

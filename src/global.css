@@ -9,7 +9,14 @@
   font-family: "Jersey10";
   src: url("components/assets/fonts/Jersey10-Regular.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "LufgaRegular";
+  src: url("components/assets/fonts/LufgaRegular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LufgaMedium";
+  src: url("components/assets/fonts/LufgaMedium.ttf") format("truetype");
+}
 @font-face {
   font-family: "PixelifySans";
   src: url("components/assets/fonts/PixelifySans-VariableFont_wght.ttf")
@@ -35,6 +42,6 @@ thead,
 button {
   font-size: 20px;
 }
-/* p {
-  font-family: "PixelifySans", sans-serif;
-} */
+p{
+  font-family: "LufgaRegular", sans-serif;
+}

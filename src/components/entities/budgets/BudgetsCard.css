@@ -1,0 +1,127 @@
+.budgetCard {
+  border: 2px solid #b7d4b3;
+  border-radius: 30px;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(175, 209, 176, 0.36);
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-height: 200px;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+.editBtn:hover {
+  box-shadow: 2px 2px 2px 2px 0 #b7d4b3;
+  transform: translateY(-3px);
+  transition: transform 0.2s ease;
+}
+
+.editBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #b7d4b3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.budgetCardName {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 20px;
+  /* padding: 10px; */
+  /* margin-left: 10px;; */
+  /* font-weight: 700; */
+  /* margin: 0; */
+  /* padding-right: 40px; */
+}
+
+.budgetCardBody {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.circleProgress {
+  position: relative;
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+}
+
+.circleProgress svg {
+  transform: rotate(-90deg);
+  width: 150px;
+  height: 150px;
+}
+
+.circleProgress .track {
+  fill: none;
+  stroke: #b7d4b3;
+  stroke-width: 5;
+}
+
+.circleProgress .fill {
+  fill: none;
+  stroke: #8fbc8f;
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.circleLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pctText {
+  font-size: 12px;
+  color: #a3a3a3;
+  font-weight: 500;
+}
+
+.amtText {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.budgetDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.budgetCardBody {
+  font-family: "LufgaRegular";
+}
+
+.detailLabel {
+  font-size: 15px;
+  color: #a3a3a3;
+  font-weight: 500;
+}
+
+.remainingAmt {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.totalAmt {
+  font-size: 15px;
+  color: #a3a3a3;
+}
