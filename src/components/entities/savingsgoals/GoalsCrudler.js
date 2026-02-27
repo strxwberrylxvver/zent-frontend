@@ -5,8 +5,8 @@ import GoalsForm from "./GoalsForm";
 import GoalView from "./GoalView.js";
 import Action from "../../UI/Actions.js";
 import { useModal, Modal } from "../../UI/Modal.js";
-import "./GoalsCrudler.css";
 import GoalsCardContainer from "./GoalsCardContainer.js";
+import "./GoalsCrudler.css";
 
 function GoalsCrudler({ endpoint, showTitle = true }) {
   const [goals, , loadingMessage, loadGoals] = useLoad(endpoint);

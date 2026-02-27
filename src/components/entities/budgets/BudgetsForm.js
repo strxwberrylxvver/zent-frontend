@@ -8,9 +8,9 @@ const emptyBudget = {
   BudgetName: "",
   UsedAmount: 0,
   TotalAmount: 0,
-  Budget: "",
+  BudgetDate: "",
   UserID: "c41b8df7-8e57-4744-aa3c-215657baf916",
-  CategoryID: null
+  CategoryID: null,
 };
 
 export default function GoalForm({
@@ -41,7 +41,7 @@ export default function GoalForm({
 
   const [budget, setBudget] = useState({
     ...initialBudget,
-    TotalAmount: formatDateForInput(initialBudget.TargetDate),
+    BudgetDate: formatDateForInput(initialBudget.BudgetDate),
   });
   const [errors, setErrors] = useState(
     Object.keys(initialBudget).reduce(
@@ -146,13 +146,13 @@ export default function GoalForm({
       <FormItem
         label="Budget date"
         htmlFor="BudgetDate"
-        advice="Please enter the target date of the budget"
+        advice="Please enter the budget date of the budget"
         error={errors.BudgetDate}
       >
         <input
           type="date"
-          name="TargetDate"
-          placeholder="Please enter the target date of the budget"
+          name="BudgetDate"
+          placeholder="Please enter the budget date of the budget"
           value={budget.BudgetDate}
           onChange={handleChange}
         />
