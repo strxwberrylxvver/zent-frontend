@@ -6,6 +6,10 @@ import BudgetView from "./BudgetView.js";
 import { useModal, Modal } from "../../UI/Modal.js";
 import BudgetsCardContainer from "./BudgetsCardContainer.js";
 import Action from "../../UI/Actions.js";
+import CalendarIcon from "../../assets/icons/calendar.png";
+import SortIcon from "../../assets/icons/sorting.png";
+import FilterIcon from "../../assets/icons/filter.png";
+import BudgetGauge from "./BudgetGauge";
 import "./BudgetsCrudler.css";
 
 function BudgetsCrudler({ endpoint, showTitle = true }) {
@@ -38,78 +42,116 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
     <section className="budgetsCrudler">
       {showTitle}
       <div className="budgetsCards">
-        <p>space for calendar, sorting/filtering, amount and reset all</p>
-        <Action.Tray>
-          <Action.Add showText onClick={handleAdd} />
-        </Action.Tray>
-        {!budgets ? (
-          <p>{loadingMessage}</p>
-        ) : budgets.length === 0 ? (
-          <p>No goals.</p>
-        ) : (
-          <BudgetsCardContainer budgets={budgets} onSelect={handleSelect} />
-        )}
-        {showDetails && (
-          <Modal
-            show={showDetails}
-            title={
-              mode === "add" ? (
-                <h1>Add new budget</h1>
-              ) : mode === "view" ? (
-                <h1>Budget details</h1>
-              ) : mode === "edit" ? (
-                <h1>Edit budget</h1>
-              ) : mode === "delete" ? (
-                <h1>Delete budget</h1>
-              ) : null
-            }
-          >
-            {mode === "add" && (
-              <BudgetsForm onCancel={handleCancel} onSuccess={handleSuccess} />
-            )}
-
-            {mode === "view" && selectedBudget && (
-              <BudgetView
-                budget={selectedBudget}
-                onEdit={() => setMode("edit")}
-                onDelete={() => setMode("delete")}
-                onClose={handleCancel}
-              />
-            )}
-
-            {mode === "edit" && selectedBudget && (
-              <BudgetsForm
-                initialBudget={selectedBudget}
-                onCancel={() => setMode("view")}
-                onSuccess={handleSuccess}
-                reloadBudgets={() => {
-                  loadBudgets(endpoint);
-                }}
-              />
-            )}
-            {mode === "delete" && selectedBudget && (
-              <>
-                <p>Are you sure you want to delete this budget?</p>
-
+        <div className="contentArea">
+          <div className="mainSection">
+            <div className="topBar">
+              <div className="sorters">
+                <div className="iconOutline">
+                  <img src={CalendarIcon} alt="Calendar" className="icon" />
+                </div>
+                <div className="iconOutline">
+                  <p>This month</p>
+                </div>
+                <div className="iconOutline">
+                  <img src={SortIcon} alt="Sort" className="icon" />
+                </div>
+                <div className="iconOutline">
+                  <p>Sort by: Default </p>
+                </div>
+                <div className="iconOutline">
+                  <img src={FilterIcon} alt="Filter" className="icon" />
+                </div>
+                <div className="reset">
+                  <p>Reset all </p>
+                </div>
+              </div>
+              <div className="addButton">
                 <Action.Tray>
-                  <Action.Yes
+                  <Action.Add
                     showText
-                    onClick={async () => {
-                      await API.delete(
-                        `/savingsgoals/${selectedBudget.BudgetID}`
-                      );
-                      await loadBudgets(endpoint);
-                      closeDetails();
-                      setSelectedBudget(null);
-                      setMode("add");
+                    buttonText="Add new budget + "
+                    onClick={handleAdd}
+                  />
+                </Action.Tray>
+              </div>
+            </div>
+            {!budgets ? (
+              <p>{loadingMessage}</p>
+            ) : budgets.length === 0 ? (
+              <p>No goals.</p>
+            ) : (
+              <BudgetsCardContainer budgets={budgets} onSelect={handleSelect} />
+            )}
+            {showDetails && (
+              <Modal
+                show={showDetails}
+                title={
+                  mode === "add" ? (
+                    <h1>Add new budget</h1>
+                  ) : mode === "view" ? (
+                    <h1>Budget details</h1>
+                  ) : mode === "edit" ? (
+                    <h1>Edit budget</h1>
+                  ) : mode === "delete" ? (
+                    <h1>Delete budget</h1>
+                  ) : null
+                }
+              >
+                {mode === "add" && (
+                  <BudgetsForm
+                    onCancel={handleCancel}
+                    onSuccess={handleSuccess}
+                  />
+                )}
+
+                {mode === "view" && selectedBudget && (
+                  <BudgetView
+                    budget={selectedBudget}
+                    onEdit={() => setMode("edit")}
+                    onDelete={() => setMode("delete")}
+                    onClose={handleCancel}
+                  />
+                )}
+
+                {mode === "edit" && selectedBudget && (
+                  <BudgetsForm
+                    initialBudget={selectedBudget}
+                    onCancel={() => setMode("view")}
+                    onSuccess={handleSuccess}
+                    reloadBudgets={() => {
+                      loadBudgets(endpoint);
                     }}
                   />
-                  <Action.No showText onClick={() => setMode("view")} />
-                </Action.Tray>
-              </>
+                )}
+                {mode === "delete" && selectedBudget && (
+                  <>
+                    <p>Are you sure you want to delete this budget?</p>
+
+                    <Action.Tray>
+                      <Action.Yes
+                        showText
+                        onClick={async () => {
+                          await API.delete(
+                            `/savingsgoals/${selectedBudget.BudgetID}`
+                          );
+                          await loadBudgets(endpoint);
+                          closeDetails();
+                          setSelectedBudget(null);
+                          setMode("add");
+                        }}
+                      />
+                      <Action.No showText onClick={() => setMode("view")} />
+                    </Action.Tray>
+                  </>
+                )}
+              </Modal>
             )}
-          </Modal>
-        )}
+          </div>
+          <div className="sideSection">
+            {" "}
+            <BudgetGauge budgets={budgets} />
+          </div>
+        </div>
       </div>
     </section>
   );

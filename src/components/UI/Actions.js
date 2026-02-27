@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export default function Action({ children, onClick, showText, buttonText }) {
   return (
     <button className="Action" onClick={onClick}>
-      {children} {showText && <p>{buttonText}</p>}
+      {children} {showText && <span>{buttonText}</span>}
     </button>
   );
 }
