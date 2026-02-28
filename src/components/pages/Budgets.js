@@ -8,7 +8,7 @@ function Budgets() {
       <section className="budgetsPageView">
         <h1>Budgets</h1>
         <div className="caption">
-          <p>Create and track your budgets</p>
+          <p>Create and keep track of your budgets</p>
         </div>
         <BudgetsCrudler endpoint={budgetsendpoint} />
       </section>

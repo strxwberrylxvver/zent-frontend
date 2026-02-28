@@ -2,11 +2,4 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  /* justify-content: center; */
 }
-
- /* .actionTray {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-} */

@@ -8,29 +8,37 @@
 .contentArea {
   display: flex;
   flex-direction: row;
+  width: fit-content;
   width: 100%;
 }
 
 .mainSection {
+  /* width: 100%;
   flex: 1;
   min-width: 0;
+  min-width: 700px;
+  max-width: 7000px; */
 }
 
 .sideSection {
-  width: 400px;
-
+  width: 700px;
+  flex-shrink: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
+
 .budgetsCards > p {
   font-size: 0.9rem;
   color: #a3a3a3;
   padding: 24px 0;
 }
 .addButton {
-  margin-left: center;
-  padding: 10px;
   margin: 10px;
-  gap: 10px;
+  margin-right: auto;
 }
+
 .topBar {
   margin-left: auto;
 }
@@ -39,11 +47,12 @@
   align-items: center;
   padding: 10px;
   gap: 10px;
+  font-size: 13px;
 }
 
 .icon {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
   /* min-width: 30px;
   max-width: 30px; */
@@ -51,9 +60,11 @@
 }
 
 .iconOutline {
+  display: flex;
+  align-items: center;
   border: 1px solid #a3a3a3;
   position: relative;
-  border-radius: 25px;
+  border-radius: 30px;
   padding: 15px;
   height: 55px;
 }

@@ -4,7 +4,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 header a {
@@ -20,8 +20,8 @@ header a:hover {
 }
 
 header a img {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   margin: 0;
   transition: width 0.3s ease, height 0.3s ease;
@@ -31,15 +31,15 @@ header a img {
 .sidebar.closed header a img {
   width: 80px;
   height: 80px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .sidebar:not(.closed) header {
-  padding: 15px 10px;
+  /* padding: 15px 10px; */
 }
 header a h1 {
   color: white;
   margin: 0;
-  font-size: 65px;
+  font-size: 40px;
   white-space: nowrap;
   transition: all 0.3s ease;
   text-align: center;

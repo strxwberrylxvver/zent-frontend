@@ -1,5 +1,5 @@
 .budgetCard {
-  border: 2px solid #b7d4b3;
+  border: 1px solid #b7d4b3;
   border-radius: 30px;
   /* padding: 20px; */
   display: flex;
@@ -8,14 +8,15 @@
   position: relative;
   transition: box-shadow 0.2s, transform 0.2s;
   min-height: 200px;
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 350px;
+  max-width: 350px;
 }
 
 .editBtn:hover {
   box-shadow: 2px 2px 2px 2px 0 #b7d4b3;
-  transform: translateY(-3px);
+  /* transform: translateY(-3px); */
   transition: transform 0.2s ease;
+  transform: scaleX(-1);
 }
 
 .editBtn {
@@ -30,12 +31,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 20px;
   line-height: 1;
+  transform: scaleX(-1);
 }
 
 .budgetCardName {
-  font-size: 25px;
+  font-size: 22px;
   margin-top: 10px;
   margin-left: 20px;
 }
@@ -84,13 +86,13 @@
 }
 
 .pctText {
-  font-size: 12px;
+  font-size: 9px;
   color: #a3a3a3;
   font-weight: 500;
 }
 
 .amtText {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -104,19 +106,19 @@
 }
 
 .detailLabel {
-  font-size: 15px;
+  font-size: 13px;
   color: #a3a3a3;
   font-weight: 500;
 }
 
 .remainingAmt {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1;
 }
 
 .totalAmt {
-  font-size: 15px;
-  color: #a3a3a3;
+  font-size: 13px;
+  color: #8fbc8f;
 }

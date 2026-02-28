@@ -69,7 +69,7 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
                 <Action.Tray>
                   <Action.Add
                     showText
-                    buttonText="Add new budget + "
+                    buttonText="+ Add new budget "
                     onClick={handleAdd}
                   />
                 </Action.Tray>

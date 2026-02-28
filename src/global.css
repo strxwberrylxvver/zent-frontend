@@ -33,10 +33,10 @@ button {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 35px;
 }
 h2 {
-  font-size: 30px;
+  font-size: 25px;
 }
 h3,
 thead,
@@ -45,4 +45,27 @@ button {
 }
 p {
   font-family: "LufgaRegular", sans-serif;
+}
+
+button {
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  /* margin: 10px; */
+  padding: 15px;
+  /* gap: 10px; */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+button:hover {
+  box-shadow: 2px 2px 2px 2px 0 #b7d4b3;
+  transform: translateY(-3px);
+  transition: transform 0.2s ease;
+}
+.ActionTray {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
