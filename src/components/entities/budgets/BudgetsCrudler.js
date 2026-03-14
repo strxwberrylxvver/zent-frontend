@@ -6,9 +6,9 @@ import BudgetView from "./BudgetView.js";
 import { useModal, Modal } from "../../UI/Modal.js";
 import BudgetsCardContainer from "./BudgetsCardContainer.js";
 import Action from "../../UI/Actions.js";
-import CalendarIcon from "../../assets/icons/calendar.png";
-import SortIcon from "../../assets/icons/sorting.png";
-import FilterIcon from "../../assets/icons/filter.png";
+// import CalendarIcon from "../../assets/icons/calendar.png";
+// import SortIcon from "../../assets/icons/sorting.png";
+// import FilterIcon from "../../assets/icons/filter.png";
 import BudgetGauge from "./BudgetGauge";
 import "./BudgetsCrudler.css";
 
@@ -45,7 +45,7 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
         <div className="contentArea">
           <div className="mainSection">
             <div className="topBar">
-              <div className="sorters">
+              {/* <div className="sorters">
                 <div className="iconOutline">
                   <img src={CalendarIcon} alt="Calendar" className="icon" />
                 </div>
@@ -64,8 +64,8 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
                 <div className="reset">
                   <p>Reset all </p>
                 </div>
-              </div>
-              <div className="addButton">
+              </div> */}
+              {/* <div className="addButton">
                 <Action.Tray>
                   <Action.Add
                     showText
@@ -73,14 +73,18 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
                     onClick={handleAdd}
                   />
                 </Action.Tray>
-              </div>
+              </div> */}
             </div>
             {!budgets ? (
               <p>{loadingMessage}</p>
             ) : budgets.length === 0 ? (
               <p>No goals.</p>
             ) : (
-              <BudgetsCardContainer budgets={budgets} onSelect={handleSelect} />
+              <BudgetsCardContainer
+                budgets={budgets}
+                onSelect={handleSelect}
+                onClick={handleAdd}
+              />
             )}
             {showDetails && (
               <Modal
