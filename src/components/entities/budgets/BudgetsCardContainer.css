@@ -17,7 +17,7 @@
   gap: 5px;
   font-size: 13px;
   flex-wrap: wrap;
-  flex: 1; 
+  flex: 1;
 }
 
 .icon {
@@ -31,15 +31,17 @@
   display: flex;
   align-items: center;
   border: 1px solid #b7b5b5;
-  position: relative;
   border-radius: 30px;
   padding: 15px;
   height: 50px;
 }
+
 .reset,
 .itemsLength {
   color: #b7b5b5;
+  font-size: 13px;
 }
+
 @media (max-width: 700px) {
   .budgetsCardContainer {
     grid-template-columns: 1fr;

@@ -5,23 +5,20 @@
 .budgetsCards {
   width: 100%;
 }
+
 .contentArea {
   display: flex;
   flex-direction: row;
-  width: fit-content;
   width: 100%;
 }
 
 .mainSection {
-  /* width: 100%;
   flex: 1;
   min-width: 0;
-  min-width: 700px;
-  max-width: 7000px; */
 }
 
 .sideSection {
-  width: 700px;
+  width: fit-content;
   flex-shrink: 0;
   padding: 15px;
   display: flex;
@@ -33,12 +30,4 @@
   font-size: 0.9rem;
   color: #a3a3a3;
   padding: 24px 0;
-}
-.addButton {
-  margin: 10px;
-  margin-right: auto;
-}
-
-.topBar {
-  margin-left: auto;
 }
