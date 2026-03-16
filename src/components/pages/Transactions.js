@@ -1,5 +1,5 @@
 import TransactionsCrudler from "../entities/transactions/TransactionsCrudler.js";
-import "./Transactions.css";
+import "../../global.css";
 function Budgets() {
   const loggedinUserID = "c41b8df7-8e57-4744-aa3c-215657baf916";
   const transactionsendpoint = `/transactions/users/${loggedinUserID}`;

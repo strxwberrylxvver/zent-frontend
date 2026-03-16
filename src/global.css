@@ -22,6 +22,10 @@
   src: url("components/assets/fonts/PixelifySans-VariableFont_wght.ttf")
     format("truetype");
 }
+.caption {
+  color: #a3a3a3;
+  font-size: 15px;
+}
 
 h1,
 h2,
