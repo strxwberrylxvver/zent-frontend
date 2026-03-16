@@ -22,7 +22,7 @@
   font-weight: 400;
   color: #1a1a1a;
 }
-.TransactionCrudler {
+/* .transactionBox {
   max-height: 500px;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -31,7 +31,7 @@
   background-color: rgba(175, 209, 176, 0.36);
   border: 2px solid #b7d4b3;
   border-radius: 16px;
-}
+} */
 @media (max-width: 900px) {
   .dashboardGrid {
     grid-template-columns: 1fr;

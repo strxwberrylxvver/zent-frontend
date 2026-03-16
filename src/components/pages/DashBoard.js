@@ -15,7 +15,7 @@ function DashBoard() {
 
       <div className="dashboardGrid">
         <div className="dashTransactions">
-          <div className="TransactionCrudler">
+          <div className="transactionsBox">
             <div className="dashSectionHeader">
               <h2>Recent Transactions</h2>
             </div>
