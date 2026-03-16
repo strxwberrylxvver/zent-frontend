@@ -1,6 +1,6 @@
 import "./TransactionsTable.css";
 
-function TransactionsTable({ transactions, onSelect, actions }) {
+function TransactionsTable({ transactions, onSelect }) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-GB", {
@@ -9,30 +9,34 @@ function TransactionsTable({ transactions, onSelect, actions }) {
       year: "numeric",
     });
   };
+
+  const formatAmount = (amount) => {
+    const val = parseFloat(amount);
+    const sign = val >= 0 ? "+" : "";
+    return `${sign}£${Math.abs(val).toFixed(2)}`;
+  };
+
   return (
     <div className="transactionBox">
-      <div className="tableHeader">
-        <h2>Spending History</h2>
-      </div>
       <table className="transactionTable">
+        
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Category</th>
-            <th>Payment Method</th>
+            <th>NAME</th>
+            <th>DATE</th>
+            <th>AMOUNT</th>
+            <th>CATEGORY</th>
+            <th>PAYMENT METHOD</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr
-              key={transaction.TransactionID}
-              onClick={() => onSelect(transaction)}
-            >
+            <tr key={transaction.TransactionID} onClick={() => onSelect(transaction)}>
               <td>{transaction.Name}</td>
               <td>{formatDate(transaction.Date)}</td>
-              <td>{transaction.Amount}</td>
+              <td className={parseFloat(transaction.Amount) >= 0 ? "amountPositive" : "amountNegative"}>
+                {formatAmount(transaction.Amount)}
+              </td>
               <td>{transaction.Category}</td>
               <td>{transaction.PaymentMethod}</td>
             </tr>
@@ -42,4 +46,5 @@ function TransactionsTable({ transactions, onSelect, actions }) {
     </div>
   );
 }
+
 export default TransactionsTable;

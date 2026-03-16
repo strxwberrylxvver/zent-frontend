@@ -1,16 +1,17 @@
+.transactionBox {
+  /* max-height: 500px; */
+  /* overflow-y: auto; */
+  /* scrollbar-width: thin;
+  scrollbar-color: #afd1b0 transparent; */
+}
+.tableHeaders {
+  border-radius: 10px;
+}
 .transactionTable {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: black;
-}
-
-.transactionBox {
-  max-height: 400px;
-  overflow-y: auto;
-  scrollbar-width: thick;
-  scrollbar-color: #afd1b0 rgba(175, 209, 176, 0.2);
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
 }
 
 .transactionTable thead th {
@@ -19,39 +20,32 @@
   z-index: 1;
   background: rgba(175, 209, 176, 0.4);
   backdrop-filter: blur(6px);
-  
-}
-
-thead {
-  color: var(--text-primary);
+  padding: 10px 16px;
   text-align: left;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Jersey10", sans-serif;
+  font-size: 17px;
+  color: #447445;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #b7d4b3;
 }
 
-th,
-td {
-  padding: 12px 15px;
-  border: 1px solid var(--border-color);
-  transition: border-color 0.3s ease;
+.transactionTable tbody td {
+  padding: 13px 16px;
+  border-bottom: 1px solid rgba(183, 212, 179, 0.4);
+  color: #1a1a1a;
 }
 
-tbody tr:hover {
-  background-color: #afd1b0;
+.transactionTable tbody tr:hover {
+  background-color: rgba(175, 209, 176, 0.25);
   cursor: pointer;
 }
 
-button {
-  background-color: #afd1b0;
-  border: 1px solid #afd1b0;
-  border-radius: 5px;
-  cursor: pointer;
-  color: black;
-  padding: 8px;
-  font-weight: bold;
+.amountPositive {
+  color: #4a9e4f;
+  font-weight: 600;
 }
 
-.tableHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.amountNegative {
+  color: #c0392b;
+  font-weight: 600;
 }

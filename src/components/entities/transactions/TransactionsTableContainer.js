@@ -43,7 +43,7 @@ function TransactionsTableContainer({ transactions, onSelect, onClick }) {
         <p>{transactions.length} items </p>
       </div>
       <div className="TransactionsTableContainer">
-        <TransactionsTable transactions={transactions} />
+        <TransactionsTable transactions={transactions} onSelect={onSelect} />
       </div>
     </>
   );
