@@ -20,8 +20,8 @@ header a:hover {
 }
 
 header a img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   margin: 0;
   transition: width 0.3s ease, height 0.3s ease;
@@ -29,8 +29,8 @@ header a img {
 }
 
 .sidebar.closed header a img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   /* margin-bottom: 20px; */
 }
 .sidebar:not(.closed) header {
