@@ -13,7 +13,6 @@ function TransactionsTable({ transactions, onSelect, actions }) {
     <div className="transactionBox">
       <div className="tableHeader">
         <h2>Spending History</h2>
-        {actions}
       </div>
       <table className="transactionTable">
         <thead>

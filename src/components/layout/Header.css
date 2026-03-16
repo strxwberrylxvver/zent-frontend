@@ -4,7 +4,6 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* gap: 10px; */
 }
 
 header a {
@@ -31,11 +30,8 @@ header a img {
 .sidebar.closed header a img {
   width: 70px;
   height: 70px;
-  /* margin-bottom: 20px; */
 }
-.sidebar:not(.closed) header {
-  /* padding: 15px 10px; */
-}
+
 header a h1 {
   color: white;
   margin: 0;

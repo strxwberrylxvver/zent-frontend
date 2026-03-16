@@ -2,12 +2,14 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import DashboardIcon from "../assets/icons/DashboardIcon.png";
 import BudgetsIcon from "../assets/icons/BudgetsIcon.png";
+import TransactionsIcon from "../assets/icons/TransactionsIcon.png";
 import GoalsIcon from "../assets/icons/GoalsIcon.png";
 import AnalyticsIcon from "../assets/icons/AnalyticsIcon.png";
 import HouseholdIcon from "../assets/icons/HouseholdIcon.png";
 
 function NavBar() {
-  const getLinkStyle = ({ isActive }) => (isActive ? "navLink navSelected" : "navLink");
+  const getLinkStyle = ({ isActive }) =>
+    isActive ? "navLink navSelected" : "navLink";
 
   return (
     <nav>
@@ -16,6 +18,16 @@ function NavBar() {
           <NavLink to="/dashboard" className={getLinkStyle}>
             <img src={DashboardIcon} alt="dashboard" className="nav-icon" />
             <h2 className="nav-text">Dashboard</h2>
+          </NavLink>
+        </div>
+        <div className="navItem">
+          <NavLink to="/transactions" className={getLinkStyle}>
+            <img
+              src={TransactionsIcon}
+              alt="transactions"
+              className="nav-icon"
+            />
+            <h2 className="nav-text">Transactions</h2>
           </NavLink>
         </div>
         <div className="navItem">
