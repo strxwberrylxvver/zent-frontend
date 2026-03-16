@@ -42,32 +42,3 @@
 .topBar {
   margin-left: auto;
 }
-/* 
-.sorters {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-  font-size: 13px;
-}
-
-.icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.iconOutline {
-  display: flex;
-  align-items: center;
-  border: 1px solid #a3a3a3;
-  position: relative;
-  border-radius: 30px;
-  padding: 15px;
-  height: 55px;
-}
-
-.reset {
-  color: #a3a3a3;
-} */

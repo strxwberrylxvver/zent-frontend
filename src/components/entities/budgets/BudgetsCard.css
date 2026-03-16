@@ -1,13 +1,12 @@
 .budgetCard {
   border: 1px solid #b7d4b3;
   border-radius: 30px;
-  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   background-color: rgba(175, 209, 176, 0.36);
   position: relative;
   transition: box-shadow 0.2s, transform 0.2s;
-  min-height: 200px;
+  min-height: 150px;
   min-width: 350px;
   max-width: 350px;
 }

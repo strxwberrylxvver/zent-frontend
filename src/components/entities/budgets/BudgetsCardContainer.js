@@ -39,6 +39,9 @@ function BudgetsCardContainer({ budgets, onSelect, onClick }) {
           </Action.Tray>
         </div>
       </div>
+      <div className="itemsLength">
+            <p>{budgets.length} items </p>
+          </div>
       <div className="budgetsCardContainer">
         {budgets.map((budget) => (
           <BudgetsCard
