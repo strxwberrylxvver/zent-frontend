@@ -7,6 +7,7 @@ import { useModal, Modal } from "../../UI/Modal.js";
 import BudgetsCardContainer from "./BudgetsCardContainer.js";
 import Action from "../../UI/Actions.js";
 import BudgetGauge from "./BudgetGauge";
+import BudgetRecentTransactions from "./BudgetRecentTransactions";
 import "./BudgetsCrudler.css";
 
 function BudgetsCrudler({ endpoint, showTitle = true }) {
@@ -14,6 +15,7 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
   const [showDetails, , openDetails, closeDetails] = useModal(false);
   const [selectedBudget, setSelectedBudget] = useState(null);
   const [mode, setMode] = useState("add");
+  const [transactions] = useLoad("/transactions");
 
   const handleAdd = () => {
     setSelectedBudget(null);
@@ -41,8 +43,7 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
       <div className="budgetsCards">
         <div className="contentArea">
           <div className="mainSection">
-            <div className="topBar">
-            </div>
+            <div className="topBar"></div>
             {!budgets ? (
               <p>{loadingMessage}</p>
             ) : budgets.length === 0 ? (
@@ -120,8 +121,8 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
             )}
           </div>
           <div className="sideSection">
-            {" "}
             <BudgetGauge budgets={budgets} />
+            <BudgetRecentTransactions transactions={transactions} />
           </div>
         </div>
       </div>

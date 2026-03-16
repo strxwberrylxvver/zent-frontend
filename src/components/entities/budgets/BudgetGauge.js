@@ -7,9 +7,9 @@ function BudgetGauge({ budgets }) {
     budgets?.reduce((sum, b) => sum + parseFloat(b.UsedAmount || 0), 0) || 0;
   const pct = total > 0 ? Math.min(Math.round((used / total) * 100), 100) : 0;
 
-  const r = 70;
+  const r = 85;
   const cx = 110;
-  const cy = 105;
+  const cy = 110;
 
   const toXY = (angle, radius = r) => ({
     x: cx + radius * Math.cos(angle),
@@ -50,7 +50,7 @@ function BudgetGauge({ budgets }) {
       </div>
       <div className="gaugeWrapper">
         <div className="gaugeSvgWrapper">
-          <svg viewBox="0 0 220 115" className="gaugeSvg">
+          <svg viewBox="0 0 220 120" className="gaugeSvg">
             <path
               d={describeArc(Math.PI, 0)}
               fill="none"

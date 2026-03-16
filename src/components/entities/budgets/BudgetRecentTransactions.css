@@ -1,0 +1,89 @@
+.recentTransactions {
+    background-color: rgba(175, 209, 176, 0.36);
+    border-radius: 24px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #b7d4b3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    margin-top: 12px;
+  }
+  
+  .recentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  
+  .recentHeader h3 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a1a1a;
+  }
+  
+  .recentCount {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #b0b0b0;
+  }
+  
+  .recentList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .recentItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding:10px;
+    border-radius: 15px;
+    border-bottom: 1px solid #b7d4b3;
+  }
+  
+  .recentDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .recentInfo {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .recentName {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .recentCategory {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    color: #a0a0a0;
+  }
+  
+  .recentRight {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  
+  .recentAmount {
+    font-family: "Jersey10", sans-serif;
+    font-size: 16px;
+    color: #1a1a1a;
+  }
+  
+  .recentDate {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    color: #a0a0a0;
+  }
