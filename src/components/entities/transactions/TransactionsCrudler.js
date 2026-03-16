@@ -5,7 +5,7 @@ import useLoad from "../../api/useLoad.js";
 import TransactionForm from "./TransactionsForm.js";
 import TransactionView from "./TransactionView.js";
 import Action from "../../UI/Actions.js";
-import TransactionsTable from "./TransactionsTable";
+import TransactionsTableContainer from "./TransactionsTableContainer";
 import { useModal, Modal } from "../../UI/Modal.js";
 
 export default function TransactionsCrudler({ endpoint }) {
@@ -41,7 +41,7 @@ export default function TransactionsCrudler({ endpoint }) {
       ) : transactions.length === 0 ? (
         <p>No transactions.</p>
       ) : (
-        <TransactionsTable
+        <TransactionsTableContainer
           transactions={transactions}
           onSelect={handleSelect}
           actions={

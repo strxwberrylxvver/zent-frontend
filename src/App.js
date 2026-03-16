@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import DashBoard from "./components/pages/DashBoard";
+import Transactions from "./components/pages/Transactions";
 import Budgets from "./components/pages/Budgets";
 import Goals from "./components/pages/Goals";
 import Analytics from "./components/pages/Analytics";
@@ -16,6 +17,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/transactions" element={<Transactions />} />
           <Route path="/budgets" element={<Budgets />} />
           <Route path="/goals" element={<Goals />} />
           <Route path="/analytics" element={<Analytics />} />
