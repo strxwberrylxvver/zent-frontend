@@ -23,9 +23,9 @@ function App() {
           <Route path="/goals" element={<Goals />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/sharedbills" element={<SharedBills />} />
-          <Route path="/login" element={<SignIn />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/register" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Layout>
