@@ -19,13 +19,6 @@
   min-width: 100%;
   max-width: 100%;
 }
-
-/* 
-IMPORTANT!!!!!!! -----------------------------------------------------------
-for the goals page change the min & max width styling so its long like the UI
-DELETE THIS ONCE COMPLETE !!!!!!!
------------------------------------------------------------------------------
- */
 .goalsCard:hover {
   background-color: #afd1b0;
   cursor: pointer;
