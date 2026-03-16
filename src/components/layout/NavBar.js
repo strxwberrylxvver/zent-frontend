@@ -10,7 +10,7 @@ import HouseholdIcon from "../assets/icons/HouseholdIcon.png";
 function NavBar() {
   const getLinkStyle = ({ isActive }) =>
     isActive ? "navLink navSelected" : "navLink";
-
+  
   return (
     <nav>
       <div className="navLinks">
@@ -64,7 +64,7 @@ function NavBar() {
           </NavLink>
         </div>
         <div className="navItem">
-          <NavLink to="/signin" className={getLinkStyle}>
+          <NavLink to="/signin" className={getLinkStyle} >
             <span className="nav-icon navBottomIcon">↪</span>
             <h2 className="nav-text">Log out</h2>
           </NavLink>

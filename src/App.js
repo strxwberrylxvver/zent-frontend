@@ -9,6 +9,7 @@ import SharedBills from "./components/pages/SharedBills";
 import SignIn from "./components/pages/SignIn";
 import PageNotFound from "./components/pages/PageNotFound";
 import ContactUs from "./components/pages/ContactUs";
+import SignUp from "./components/pages/SignUp";
 import "./global.css";
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
           <Route path="/goals" element={<Goals />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/sharedbills" element={<SharedBills />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/login" element={<SignIn />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/register" element={<SignUp />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Layout>
