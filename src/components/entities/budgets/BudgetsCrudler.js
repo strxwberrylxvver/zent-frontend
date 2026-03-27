@@ -60,13 +60,13 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
                 show={showDetails}
                 title={
                   mode === "add" ? (
-                    <h1>Add new budget</h1>
+                    <h2>Add new budget</h2>
                   ) : mode === "view" ? (
-                    <h1>Budget details</h1>
+                    <h2>Budget details</h2>
                   ) : mode === "edit" ? (
-                    <h1>Edit budget</h1>
+                    <h2>Edit budget</h2>
                   ) : mode === "delete" ? (
-                    <h1>Delete budget</h1>
+                    <h2>Delete budget</h2>
                   ) : null
                 }
               >

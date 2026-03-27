@@ -1,3 +1,49 @@
 .error {
-  color: red;
+  color: #e53935;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  min-height: 1rem;
+}
+
+.FormItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.FormLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.FormLabel p {
+  margin: 0;
+}
+
+.FormInput {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 1.5px solid #e0d5cc;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+
+.FormInput:focus {
+  border-color: #7c5cbf;
+}
+
+.FormInput::placeholder {
+  color: #bbb;
+}
+
+.FormInput.hasError {
+  border-color: #e53935;
 }

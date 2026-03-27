@@ -13,7 +13,7 @@ const emptyBudget = {
   CategoryID: null,
 };
 
-export default function GoalForm({
+export default function BudgetForm({
   initialBudget = emptyBudget,
   onCancel,
   onSuccess,
@@ -33,7 +33,7 @@ export default function GoalForm({
     BudgetDate: (date) => Boolean(date),
   };
   const errorMessage = {
-    BudgetName: "Your goal name is too short",
+    BudgetName: "Your budget name is too short",
     UsedAmount: "Your amount is invalid",
     TotalAmount: "Your amount is invalid",
     BudgetDate: "Your date is invalid",
@@ -92,73 +92,68 @@ export default function GoalForm({
   };
 
   return (
-    <form className="BorderedForm">
-      <FormItem
-        label="Budget Name"
-        htmlFor="BudgetName"
-        advice="Please enter the name of the budget"
-        error={errors.BudgetName}
-      >
-        <input
-          type="text"
-          name="BudgetName"
-          placeholder="Groceries..."
-          value={budget.BudgetName}
-          onChange={handleChange}
-        />
-      </FormItem>
-      <br></br>
+    <form className="BudgetModalPane" onSubmit={handleSubmit}>
+      <div className="BudgetFormRow">
+        <FormItem
+          label="Budget Name"
+          htmlFor="BudgetName"
+          error={errors.BudgetName}
+        >
+          <input
+            className={`FormInput${errors.BudgetName ? " hasError" : ""}`}
+            type="text"
+            name="BudgetName"
+            placeholder="e.g. Groceries"
+            value={budget.BudgetName}
+            onChange={handleChange}
+          />
+        </FormItem>
 
-      <FormItem
-        label="Amount used"
-        htmlFor="UsedAmount"
-        advice="Please enter the used amount"
-        error={errors.UsedAmount}
-      >
-        <input
-          type="number"
-          step="0.01"
-          name="UsedAmount"
-          placeholder="PPlease enter the used amount"
-          value={budget.UsedAmount}
-          onChange={handleChange}
-        />
-      </FormItem>
+        <FormItem
+          label="Budget Date"
+          htmlFor="BudgetDate"
+          error={errors.BudgetDate}
+        >
+          <input
+            className={`FormInput${errors.BudgetDate ? " hasError" : ""}`}
+            type="date"
+            name="BudgetDate"
+            value={budget.BudgetDate}
+            onChange={handleChange}
+          />
+        </FormItem>
+        <FormItem
+          label="Used Amount"
+          htmlFor="UsedAmount"
+          error={errors.UsedAmount}
+        >
+          <input
+            className={`FormInput${errors.UsedAmount ? " hasError" : ""}`}
+            type="number"
+            step="0.01"
+            name="UsedAmount"
+            placeholder="$0.00"
+            value={budget.UsedAmount}
+            onChange={handleChange}
+          />
+        </FormItem>
 
-      <br></br>
-      <FormItem
-        label="Total amount"
-        htmlFor="TotalAmount"
-        advice="Please enter the total amount of the budget"
-        error={errors.TotalAmount}
-      >
-        <input
-          type="number"
-          step="0.01"
-          name="TotalAmount"
-          placeholder="Please enter the total amount of the budget"
-          value={budget.TotalAmount}
-          onChange={handleChange}
-        />
-      </FormItem>
-      <br></br>
-
-      <FormItem
-        label="Budget date"
-        htmlFor="BudgetDate"
-        advice="Please enter the budget date of the budget"
-        error={errors.BudgetDate}
-      >
-        <input
-          type="date"
-          name="BudgetDate"
-          placeholder="Please enter the budget date of the budget"
-          value={budget.BudgetDate}
-          onChange={handleChange}
-        />
-      </FormItem>
-      <br></br>
-
+        <FormItem
+          label="Total Amount"
+          htmlFor="TotalAmount"
+          error={errors.TotalAmount}
+        >
+          <input
+            className={`FormInput${errors.TotalAmount ? " hasError" : ""}`}
+            type="number"
+            step="0.01"
+            name="TotalAmount"
+            placeholder="$0.00"
+            value={budget.TotalAmount}
+            onChange={handleChange}
+          />
+        </FormItem>
+      </div>
       <Action.Tray>
         <Action.Submit showText buttonText="Submit" onClick={handleSubmit} />
         <Action.Cancel showText buttonText="Cancel" onClick={onCancel} />
@@ -167,7 +162,7 @@ export default function GoalForm({
   );
 }
 
-GoalForm.propTypes = {
+BudgetForm.propTypes = {
   onCancel: PropTypes.func,
   onSuccess: PropTypes.func,
 };

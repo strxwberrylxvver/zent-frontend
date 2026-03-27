@@ -1,8 +1,9 @@
 import BudgetsCrudler from "../entities/budgets/BudgetsCrudler.js";
+import { useAuth } from "../auth/useAuth.js";
 import "../../global.css";
 function Budgets() {
-  const loggedinUserID = "c41b8df7-8e57-4744-aa3c-215657baf916";
-  const budgetsendpoint = `/budgets/users/${loggedinUserID}`;
+  const {user} = useAuth();
+  const budgetsendpoint = `/budgets/users/${user?.UserID}`;
   return (
     <section>
       <section className="budgetsPageView">

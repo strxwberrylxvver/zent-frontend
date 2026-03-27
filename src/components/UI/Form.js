@@ -1,13 +1,15 @@
 import "./Form.css";
-export default function FormItem({ children, label, htmlFor, advice, error }) {
+
+export default function FormItem({ children, label, htmlFor, error }) {
   return (
     <div className="FormItem">
       <label className="FormLabel" htmlFor={htmlFor}>
-      <h3>{label}</h3>
+        <p>{label}</p>
       </label>
-      {advice && <p className="FormAdvice ">{advice}</p>}
       {children}
-      <div className = "error">{error && <p className="FormError">{error}</p>}</div>
+      <div className="error">
+        {error && <p className="FormError">{error}</p>}
+      </div>
     </div>
   );
 }
