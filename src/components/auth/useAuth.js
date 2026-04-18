@@ -1,35 +1,29 @@
 import { createContext, useContext, useState } from "react";
 
+const USER_KEY = "auth_user";
 const AuthContext = createContext(null);
 
-export function AuthProvider({ children }) {
-
-  const [user, setUser] = useState(() => {
-    const token = localStorage.getItem("token");
-    const userID = localStorage.getItem("userID");
-    const email = localStorage.getItem("email");
-    const firstName = localStorage.getItem("firstName");
-    const userType = localStorage.getItem("userType");  
-    return token ? { token, userID, email, firstName, userType } : null;
+function useLocalStorage(key, initialValue) {
+  const [value, setValue] = useState(() => {
+    try {
+      const stored = localStorage.getItem(key);
+      return stored ? JSON.parse(stored) : initialValue;
+    } catch {
+      return initialValue;
+    }
   });
-  
-  const login = (userData) => {
-    localStorage.setItem("token", userData.token);
-    localStorage.setItem("userID", userData.userID);
-    localStorage.setItem("email", userData.email);
-    localStorage.setItem("firstName", userData.firstName);
-    localStorage.setItem("userType", userData.userType); 
-    setUser(userData);
-  };
-  
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userID");
-    localStorage.removeItem("email");
-    localStorage.removeItem("firstName");
-    localStorage.removeItem("userType");                
-    setUser(null);
-  };
+
+  const set = (data) => { localStorage.setItem(key, JSON.stringify(data)); setValue(data); };
+  const clear = () => { localStorage.removeItem(key); setValue(null); };
+
+  return [value, set, clear];
+}
+
+export function AuthProvider({ children }) {
+  const [user, setUser, clearUser] = useLocalStorage(USER_KEY, null);
+
+  const login = (userData) => setUser(userData);
+  const logout = () => clearUser();
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
@@ -39,5 +33,7 @@ export function AuthProvider({ children }) {
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth must be used within an AuthProvider");
+  return context;
 }
