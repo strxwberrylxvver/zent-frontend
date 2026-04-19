@@ -4,7 +4,7 @@ import { useAuth } from "../auth/useAuth";
 
 function Budgets() {
   const {user} = useAuth();
-  const transactionsendpoint = `/transactions/users/${user?.UserID}`;
+  const transactionsendpoint = `/transactions/users/${user?.userID}`;
   return (
     <section>
       <section className="transactionPageView">

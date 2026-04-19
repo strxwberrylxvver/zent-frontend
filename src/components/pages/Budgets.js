@@ -3,7 +3,7 @@ import { useAuth } from "../auth/useAuth.js";
 import "../../global.css";
 function Budgets() {
   const {user} = useAuth();
-  const budgetsendpoint = `/budgets/users/${user?.UserID}`;
+  const budgetsendpoint = `/budgets/users/${user?.userID}`;
   return (
     <section>
       <section className="budgetsPageView">

@@ -3,7 +3,7 @@ import { useAuth } from "../auth/useAuth";
 
 function Goals() {
   const {user} = useAuth();
-  const goalsendpoint = `/savingsgoals/users/${user?.UserID}`;
+  const goalsendpoint = `/savingsgoals/users/${user?.userID}`;
   return (
     <section>
       <section className="goalsPageView">
