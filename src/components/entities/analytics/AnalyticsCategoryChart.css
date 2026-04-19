@@ -1,0 +1,64 @@
+.analyticsCategoryChart {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .analyticsDonutSvg {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+  }
+  
+  .donutCentreLabel {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 9px;
+    fill: #a0a0a0;
+  }
+  
+  .donutCentreValue {
+    font-family: "Jersey10", sans-serif;
+    font-size: 11px;
+    fill: #1a1a1a;
+  }
+  
+  .analyticsCategoryLegend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .analyticsCategoryItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+  }
+  
+  .analyticsCategoryDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .analyticsCategoryName {
+    flex: 1;
+    color: #3a3a3a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .analyticsCategoryValue {
+    font-family: "Jersey10", sans-serif;
+    font-size: 14px;
+    color: #1a1a1a;
+  }

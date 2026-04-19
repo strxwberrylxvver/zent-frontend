@@ -1,33 +1,45 @@
 import API_URL from "./apiURL";
 
 export const API = {};
-API.get = (endpoint) => callFetch(endpoint, "GET", null);
-API.post = (endpoint, data) => callFetch(endpoint, "POST", data);
-API.put = (endpoint, data) => callFetch(endpoint, "PUT", data);
-API.delete = (endpoint) => callFetch(endpoint, "DELETE", null);
+API.get    = (endpoint)       => callFetch(endpoint, "GET",    null);
+API.post   = (endpoint, data) => callFetch(endpoint, "POST",   data);
+API.put    = (endpoint, data) => callFetch(endpoint, "PUT",    data);
+API.delete = (endpoint)       => callFetch(endpoint, "DELETE", null);
+
+const getToken = () => {
+  try {
+    const user = JSON.parse(localStorage.getItem("auth_user"));
+    return user?.token ?? null;
+  } catch {
+    return null;
+  }
+};
 
 const callFetch = async (endpoint, method, dataObj) => {
-  const token = localStorage.getItem("token");
+  const token = getToken();
 
-  let headers = {};
-  if (dataObj) headers["Content-type"] = "application/json";
-  if (token) headers["Authorization"] = `Bearer ${token}`;
-
-  let requestObj = {
-    method,
-    headers,
-    ...(dataObj && { body: JSON.stringify(dataObj) }),
-  };
+  const headers = {};
+  if (dataObj) headers["Content-Type"] = "application/json";
+  if (token)   headers["Authorization"] = `Bearer ${token}`;
 
   try {
-    const endpointAddress = API_URL + endpoint;
-    const response = await fetch(endpointAddress, requestObj);
+    const response = await fetch(API_URL + endpoint, {
+      method,
+      headers,
+      ...(dataObj && { body: JSON.stringify(dataObj) }),
+    });
+
     const result = await response.json();
-    return response.status >= 200 && response.status < 300
-      ? { isSuccess: true, result }
-      : { isSuccess: false, message: `Error: status ${response.status}` };
+
+    if (response.ok) {
+      return { isSuccess: true, result };
+    }
+
+    const message = result?.message || `Something went wrong (${response.status}).`;
+    return { isSuccess: false, message };
+
   } catch (error) {
-    return { isSuccess: false, message: error.message };
+    return { isSuccess: false, message: "Network error — please check your connection." };
   }
 };
 

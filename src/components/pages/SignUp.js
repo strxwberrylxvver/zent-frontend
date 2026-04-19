@@ -65,6 +65,7 @@ export default function SignUp() {
 
   return (
     <div className="auth-page">
+    <h1>Welcome to Zent!</h1>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <FormItem
