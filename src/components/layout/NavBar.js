@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/useAuth";
 import "./NavBar.css";
 import DashboardIcon from "../assets/icons/DashboardIcon.png";
 import BudgetsIcon from "../assets/icons/BudgetsIcon.png";
@@ -8,9 +9,17 @@ import AnalyticsIcon from "../assets/icons/AnalyticsIcon.png";
 import HouseholdIcon from "../assets/icons/HouseholdIcon.png";
 
 function NavBar() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
   const getLinkStyle = ({ isActive }) =>
     isActive ? "navLink navSelected" : "navLink";
-  
+
+  const handleLogout = () => {
+    logout();
+    navigate("/signin");
+  };
+
   return (
     <nav>
       <div className="navLinks">
@@ -22,11 +31,7 @@ function NavBar() {
         </div>
         <div className="navItem">
           <NavLink to="/transactions" className={getLinkStyle}>
-            <img
-              src={TransactionsIcon}
-              alt="transactions"
-              className="nav-icon"
-            />
+            <img src={TransactionsIcon} alt="transactions" className="nav-icon" />
             <h2 className="nav-text">Transactions</h2>
           </NavLink>
         </div>
@@ -64,10 +69,10 @@ function NavBar() {
           </NavLink>
         </div>
         <div className="navItem">
-          <NavLink to="/signin" className={getLinkStyle} >
+          <button className="navLink navLogoutBtn" onClick={handleLogout}>
             <span className="nav-icon navBottomIcon">↪</span>
             <h2 className="nav-text">Log out</h2>
-          </NavLink>
+          </button>
         </div>
       </div>
     </nav>
