@@ -1,0 +1,220 @@
+.sharedBillsPage {
+  padding: 24px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sbPageHeader h1 {
+  font-family: "Jersey10", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 4px;
+  color: #1a1a1a;
+}
+
+.sbSub {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 14px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.sbSummaryRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 600px) { .sbSummaryRow { grid-template-columns: 1fr; } }
+
+.sbSummaryCard {
+  background-color: rgba(175, 209, 176, 0.36);
+  border: 1px solid #b7d4b3;
+  border-radius: 20px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sbSummaryLabel {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a0a0a0;
+}
+
+.sbSummaryValue {
+  font-family: "Jersey10", sans-serif;
+  font-size: 30px;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.sbCard {
+  background-color: rgba(175, 209, 176, 0.36);
+  border: 1px solid #b7d4b3;
+  border-radius: 24px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sbCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sbCardHeader h2 {
+  font-family: "Jersey10", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.sbCount {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 12px;
+  color: #b0b0b0;
+}
+
+.sbSelect {
+  border: 1px solid #b7d4b3;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  background: rgba(175,209,176,0.3);
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.sbBillsList { display: flex; flex-direction: column; gap: 8px; }
+
+.sbBillRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #b7d4b3;
+  border-radius: 14px;
+  gap: 12px;
+}
+
+.sbBillRow--paid { opacity: 0.6; }
+
+.sbBillLeft { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+
+.sbBillDot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sbBillName {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sbBillCategory {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 11px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.sbBillRight { text-align: right; flex-shrink: 0; }
+
+.sbBillAmount {
+  font-family: "Jersey10", sans-serif;
+  font-size: 18px;
+  color: #1a1a1a;
+  display: block;
+}
+
+.sbBillSplit {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 11px;
+  color: #8fbc8f;
+}
+
+.sbBottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 700px) { .sbBottomGrid { grid-template-columns: 1fr; } }
+
+.sbChecklist { display: flex; flex-direction: column; gap: 8px; }
+
+.sbCheckItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 12px;
+}
+
+.sbMemberName {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.sbPayStatus {
+  font-family: "Jersey10", sans-serif;
+  font-size: 14px;
+}
+
+.sbPayStatus--paid    { color: #66bb6a; }
+.sbPayStatus--missing { color: #e57373; }
+
+.sbUpcomingList { display: flex; flex-direction: column; gap: 8px; }
+
+.sbUpcomingItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 12px;
+}
+
+.sbUpcomingInfo { flex: 1; min-width: 0; }
+
+.sbSplitBadge {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 12px;
+  background: #b7d4b3;
+  color: #1a1a1a;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sbEmpty {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  color: #b0b0b0;
+  text-align: center;
+  padding: 16px;
+}
