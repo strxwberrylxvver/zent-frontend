@@ -11,7 +11,7 @@ function DashBoard() {
     switch (user?.userType) {
       case "Student":           return <StudentDashboard />;
       case "Financial Advisor": return <AdvisorDashboard />;
-      case "Parent/Carer":      return <ParentDashboard />;
+      case "Parent":      return <ParentDashboard />;
       default:                  return <p>Unknown user type.</p>;
     }
   };

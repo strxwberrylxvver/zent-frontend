@@ -3,8 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import { API } from "../api/API";
 import FormItem from "../UI/Form";
 
-const USER_TYPES = ["Student", "Financial Advisor", "Parent/Carer"];
-
+const USER_TYPES = [
+  { label: "Student", value: "Student" },
+  { label: "Financial Advisor", value: "Financial Advisor" },
+  { label: "Parent/Carer", value: "Parent" },
+];
 export default function SignUp() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -65,7 +68,7 @@ export default function SignUp() {
 
   return (
     <div className="auth-page">
-    <h1>Welcome to Zent!</h1>
+      <h1>Welcome to Zent!</h1>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <FormItem
@@ -136,9 +139,9 @@ export default function SignUp() {
             <option value="" disabled>
               Select User Type
             </option>
-            {USER_TYPES.map((type) => (
-              <option key={type} value={type}>
-                {type}
+            {USER_TYPES.map(({ label, value }) => (
+              <option key={value} value={value}>
+                {label}
               </option>
             ))}
           </select>
