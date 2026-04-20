@@ -44,11 +44,7 @@ export default function TransactionsCrudler({ endpoint }) {
         <TransactionsTableContainer
           transactions={transactions}
           onSelect={handleSelect}
-          actions={
-            <Action.Tray>
-              <Action.Add showText onClick={handleAdd} />
-            </Action.Tray>
-          }
+          onClick={handleAdd}
         />
       )}
       {showDetails && (

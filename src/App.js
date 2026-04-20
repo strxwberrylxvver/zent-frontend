@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/dashboard" element={<ProtectedRoute><DashBoard /></ProtectedRoute>} />
+          <Route path="/" element={<ProtectedRoute><DashBoard /></ProtectedRoute>} />
           <Route path="/transactions" element={<ProtectedRoute><Transactions /></ProtectedRoute>} />
           <Route path="/budgets" element={<ProtectedRoute><Budgets /></ProtectedRoute>} />
           <Route path="/goals" element={<ProtectedRoute><Goals /></ProtectedRoute>} />

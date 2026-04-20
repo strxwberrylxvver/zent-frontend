@@ -15,7 +15,7 @@ function NavBar() {
     <nav>
       <div className="navLinks">
         <div className="navItem">
-          <NavLink to="/dashboard" className={getLinkStyle}>
+          <NavLink to="/" className={getLinkStyle}>
             <img src={DashboardIcon} alt="dashboard" className="nav-icon" />
             <h2 className="nav-text">Dashboard</h2>
           </NavLink>
