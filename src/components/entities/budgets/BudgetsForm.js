@@ -10,7 +10,7 @@ const emptyBudget = {
   TotalAmount: 0,
   BudgetDate: "",
   UserID: "c41b8df7-8e57-4744-aa3c-215657baf916",
-  CategoryID: null,
+  CategoryID: "a3c1b5e2-7d8f-4b9c-9e1d-2f3a4b5c6d7e",
 };
 
 export default function BudgetForm({
@@ -80,6 +80,7 @@ export default function BudgetForm({
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateAll()) return;
+    console.log("Submitting budget:", budget);
     let result;
     if (isEdit) {
       result = await API.put(`/budgets/${budget.BudgetID}`, budget);
