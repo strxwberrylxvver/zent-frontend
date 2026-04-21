@@ -9,25 +9,35 @@ import SharedBills from "./components/pages/SharedBills";
 import SignIn from "./components/pages/SignIn";
 import PageNotFound from "./components/pages/PageNotFound";
 import ContactUs from "./components/pages/ContactUs";
+import SignUp from "./components/pages/SignUp";
+import Notifications from "./components/pages/Notifications";
+import Profile from "./components/pages/Profile";
+import { AuthProvider } from "./components/auth/useAuth";
+import ProtectedRoute from "./components/auth/protectedRoutes";
 import "./global.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/budgets" element={<Budgets />} />
-          <Route path="/goals" element={<Goals />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/sharedbills" element={<SharedBills />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/"              element={<ProtectedRoute><DashBoard /></ProtectedRoute>} />
+            <Route path="/transactions"  element={<ProtectedRoute><Transactions /></ProtectedRoute>} />
+            <Route path="/budgets"       element={<ProtectedRoute><Budgets /></ProtectedRoute>} />
+            <Route path="/goals"         element={<ProtectedRoute><Goals /></ProtectedRoute>} />
+            <Route path="/analytics"     element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+            <Route path="/sharedbills"   element={<ProtectedRoute><SharedBills /></ProtectedRoute>} />
+            <Route path="/notifications" element={<ProtectedRoute><Notifications /></ProtectedRoute>} />
+            <Route path="/profile"       element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="/signin"        element={<SignIn />} />
+            <Route path="/contact"       element={<ContactUs />} />
+            <Route path="/signup"        element={<SignUp />} />
+            <Route path="*"              element={<PageNotFound />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

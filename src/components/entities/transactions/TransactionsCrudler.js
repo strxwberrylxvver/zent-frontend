@@ -1,78 +1,61 @@
-import "./TransactionsCrudler.css";
 import { useState } from "react";
 import { API } from "../../api/API.js";
 import useLoad from "../../api/useLoad.js";
+import useFilters, { buildQueryString, currentMonth } from "../../api/useFilters.js";
 import TransactionForm from "./TransactionsForm.js";
 import TransactionView from "./TransactionView.js";
 import Action from "../../UI/Actions.js";
 import TransactionsTableContainer from "./TransactionsTableContainer";
 import { useModal, Modal } from "../../UI/Modal.js";
 
+const CATEGORIES = ["Entertainment", "Groceries", "Transport", "Bills", "Income", "Rent", "Subscriptions", "Other"];
+
 export default function TransactionsCrudler({ endpoint }) {
-  const [transactions, , loadingMessage, loadTransactions] = useLoad(endpoint);
+  const { filters, setFilter, reset } = useFilters({ month: currentMonth() });
+  const filteredEndpoint = endpoint + buildQueryString(filters);
+  const [transactions, , loadingMessage, loadTransactions] = useLoad(filteredEndpoint);
   const [showDetails, , openDetails, closeDetails] = useModal(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
   const [mode, setMode] = useState("add");
 
-  const handleAdd = () => {
-    setSelectedTransaction(null);
-    setMode("add");
-    openDetails();
-  };
-
-  const handleSelect = (transaction) => {
-    setSelectedTransaction(transaction);
-    setMode("view");
-    openDetails();
-  };
-
+  const handleAdd    = () => { setSelectedTransaction(null); setMode("add");  openDetails(); };
+  const handleSelect = (t) => { setSelectedTransaction(t);   setMode("view"); openDetails(); };
   const handleCancel = () => closeDetails();
-
   const handleSuccess = async () => {
     closeDetails();
     setSelectedTransaction(null);
-    await loadTransactions(endpoint);
+    await loadTransactions(filteredEndpoint);
   };
 
   return (
     <section className="TransactionCrudler">
       {!transactions ? (
         <p>{loadingMessage}</p>
-      ) : transactions.length === 0 ? (
-        <p>No transactions.</p>
       ) : (
         <TransactionsTableContainer
           transactions={transactions}
           onSelect={handleSelect}
-          actions={
-            <Action.Tray>
-              <Action.Add showText onClick={handleAdd} />
-            </Action.Tray>
-          }
+          onClick={handleAdd}
+          filters={filters}
+          onFilterChange={setFilter}
+          onReset={reset}
+          categories={CATEGORIES}
         />
       )}
+
       {showDetails && (
         <Modal
           show={showDetails}
           title={
-            mode === "add" ? (
-              <h1>Add new transaction</h1>
-            ) : mode === "view" ? (
-              <h1>Transaction details</h1>
-            ) : mode === "edit" ? (
-              <h1>Edit transaction</h1>
-            ) : mode === "delete" ? (
-              <h1>Delete transaction</h1>
-            ) : null
+            mode === "add"    ? <h1>Add new transaction</h1>
+            : mode === "view" ? <h1>Transaction details</h1>
+            : mode === "edit" ? <h1>Edit transaction</h1>
+            : <h1>Delete transaction</h1>
           }
         >
           {mode === "add" && (
-            <TransactionForm
-              onCancel={handleCancel}
-              onSuccess={handleSuccess}
-            />
+            <TransactionForm onCancel={handleCancel} onSuccess={handleSuccess} />
           )}
-
           {mode === "view" && selectedTransaction && (
             <TransactionView
               transaction={selectedTransaction}
@@ -81,34 +64,25 @@ export default function TransactionsCrudler({ endpoint }) {
               onClose={handleCancel}
             />
           )}
-
           {mode === "edit" && selectedTransaction && (
             <TransactionForm
               initialTransaction={selectedTransaction}
               onCancel={() => setMode("view")}
               onSuccess={handleSuccess}
-              reloadTransactions={() => {
-                loadTransactions(endpoint);
-              }}
+              reloadTransactions={() => loadTransactions(filteredEndpoint)}
             />
           )}
           {mode === "delete" && selectedTransaction && (
             <>
               <p>Are you sure you want to delete this transaction?</p>
-
               <Action.Tray>
-                <Action.Yes
-                  showText
-                  onClick={async () => {
-                    await API.delete(
-                      `/transactions/${selectedTransaction.TransactionID}`
-                    );
-                    await loadTransactions(endpoint);
-                    closeDetails();
-                    setSelectedTransaction(null);
-                    setMode("add");
-                  }}
-                />
+                <Action.Yes showText onClick={async () => {
+                  await API.delete(`/transactions/${selectedTransaction.TransactionID}`);
+                  await loadTransactions(filteredEndpoint);
+                  closeDetails();
+                  setSelectedTransaction(null);
+                  setMode("add");
+                }} />
                 <Action.No showText onClick={() => setMode("view")} />
               </Action.Tray>
             </>

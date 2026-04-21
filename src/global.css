@@ -22,6 +22,10 @@
   src: url("components/assets/fonts/PixelifySans-VariableFont_wght.ttf")
     format("truetype");
 }
+.caption {
+  color: #a3a3a3;
+  font-size: 15px;
+}
 
 h1,
 h2,
@@ -46,22 +50,26 @@ button {
 p {
   font-family: "LufgaRegular", sans-serif;
 }
-
 button {
   border-radius: 25px;
   display: flex;
-  flex-direction: column;
-  /* margin: 10px; */
-  padding: 15px;
-  /* gap: 10px; */
+  flex-direction: row;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  background-color: #afd1b0;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-family: "Jersey10", sans-serif;
+  font-size: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 button:hover {
-  box-shadow: 2px 2px 2px 2px 0 #b7d4b3;
-  transform: translateY(-3px);
-  transition: transform 0.2s ease;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(143, 188, 143, 0.4);
 }
 .ActionTray {
   display: flex;
@@ -69,3 +77,4 @@ button:hover {
   align-items: center;
   gap: 10px;
 }
+

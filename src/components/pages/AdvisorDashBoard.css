@@ -1,0 +1,287 @@
+.advisorDash {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .advisorLinkForm {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .advisorLinkForm h2 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 4px;
+  }
+  
+  .advisorLinkForm p {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #a0a0a0;
+    margin: 0 0 14px;
+  }
+  
+  .advisorLinkRow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .advisorLinkInput {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid #b7d4b3;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    background: rgba(255,255,255,0.7);
+  }
+  
+  .advisorLinkBtn {
+    background: #8fbc8f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  
+  .advisorLinkBtn:hover    { background: #66bb6a; }
+  .advisorLinkBtn:disabled { opacity: 0.6; cursor: default; }
+  
+  .advisorError {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #e57373;
+    margin: 8px 0 0;
+  }
+  
+  .advisorLoading, .advisorEmpty {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    color: #b0b0b0;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .advisorEmpty span { font-size: 40px; display: block; margin-bottom: 8px; }
+  
+  /* ── Student panel ── */
+  .advisorStudentPanel {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .advisorStudentHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .advisorStudentAvatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #8fbc8f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Jersey10", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+  
+  .advisorStudentName {
+    font-family: "Jersey10", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 2px;
+  }
+  
+  .advisorStudentSub {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #a0a0a0;
+    margin: 0;
+  }
+  
+  .advisorRemoveBtn {
+    margin-left: auto;
+    background: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: #b0b0b0;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .advisorRemoveBtn:hover { border-color: #e57373; color: #e57373; }
+  
+  /* ── Stats ── */
+  .advisorStatsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  @media (max-width: 700px) { .advisorStatsRow { grid-template-columns: repeat(2, 1fr); } }
+  
+  .advisorStat {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid #b7d4b3;
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .advisorStatLabel {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a0a0a0;
+  }
+  
+  .advisorStatValue {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    color: #1a1a1a;
+  }
+  
+  /* ── Panel grid ── */
+  .advisorPanelGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  
+  @media (max-width: 700px) { .advisorPanelGrid { grid-template-columns: 1fr; } }
+  
+  .advisorCard {
+    background: rgba(255,255,255,0.4);
+    border: 1px solid #b7d4b3;
+    border-radius: 18px;
+    padding: 16px 18px;
+  }
+  
+  .advisorCard h3 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 12px;
+  }
+  
+  /* ── Budget rows ── */
+  .advisorBudgetRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .advisorBudgetName {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #3a3a3a;
+    width: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .advisorBudgetTrack {
+    flex: 1;
+    height: 7px;
+    background: #e8f5e9;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .advisorBudgetFill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.5s ease;
+  }
+  
+  .advisorBudgetMeta {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 10px;
+    color: #a0a0a0;
+    white-space: nowrap;
+    width: 90px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  
+  /* ── Chart ── */
+  .advisorChartWrap { height: 120px; }
+  
+  .advisorChartBars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 100%;
+  }
+  
+  .advisorChartGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+  }
+  
+  .advisorChartTrack {
+    flex: 1;
+    width: 100%;
+    background: #e8f5e9;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  
+  .advisorChartFill {
+    width: 100%;
+    background: #8fbc8f;
+    border-radius: 6px 6px 0 0;
+    min-height: 3px;
+    transition: height 0.5s ease;
+  }
+  
+  .advisorChartLabel {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 10px;
+    color: #a0a0a0;
+  }

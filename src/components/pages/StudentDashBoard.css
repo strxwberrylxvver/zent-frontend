@@ -1,0 +1,177 @@
+.studentDash {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .dashStatsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  
+  @media (max-width: 900px) {
+    .dashStatsRow { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  .dashStatCard {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 20px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 4px solid var(--accent, #8fbc8f);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: relative;
+  }
+  
+  .dashStatLabel {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .dashStatValue {
+    font-family: "Jersey10", sans-serif;
+    font-size: 30px;
+    color: #1a1a1a;
+    line-height: 1;
+  }
+  
+  .dashStatDec {
+    font-size: 20px;
+    color: #b0b0b0;
+  }
+  
+  .dashStatSub {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    color: #b0b0b0;
+  }
+    
+  .dashMidRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .dashChart {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .dashChartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .dashChartTitle {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    color: #1a1a1a;
+  }
+  
+  .dashChartLegend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #6b6b6b;
+  }
+  
+  .dashLegendDot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .dashChartBars {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 160px;
+  }
+  
+  .dashChartGroup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+  }
+  
+  .dashChartBarPair {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .dashChartBar {
+    flex: 1;
+    border-radius: 6px 6px 0 0;
+    min-height: 3px;
+    transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  
+  .dashChartBar--income  { background: #8fbc8f; }
+  .dashChartBar--expense { background: #b7d4b3; }
+  
+  .dashChartLabel {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    color: #a0a0a0;
+  }
+    
+  .dashboardGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  
+  @media (max-width: 900px) {
+    .dashboardGrid { grid-template-columns: 1fr; }
+    .dashMidRow    { grid-template-columns: 1fr; }
+  }
+  
+  .transactionsBox {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .dashSectionHeader {
+    margin-bottom: 12px;
+  }
+  
+  .dashSectionHeader h2 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a1a1a;
+  }
+  
+  .dashLoading,
+  .dashEmpty {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #b0b0b0;
+    padding: 16px 0;
+  }

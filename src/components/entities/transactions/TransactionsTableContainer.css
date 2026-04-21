@@ -1,52 +1,108 @@
-.budgetsCardContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
-  .topBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .sorters,
-  .itemsLength {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 13px;
-    flex-wrap: wrap;
-    flex: 1;
-    margin-top: 20px;
-    margin-bottom: 5px;
-  }
-  
-  .icon {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-  
-  .iconOutline {
-    display: flex;
-    align-items: center;
-    border: 1px solid #b7b5b5;
-    border-radius: 30px;
-    padding: 15px;
-    height: 50px;
-  }
-  
-  .reset,
-  .itemsLength {
-    color: #b7b5b5;
-  }
-  
-  @media (max-width: 700px) {
-    .budgetsCardContainer {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+.transactionsPage {
+  padding: 30px;
+}
+
+.transactionsPageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.transactionsCard {
+  background-color: rgba(175, 209, 176, 0.2);
+  border: 1px solid #b7d4b3;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.sorters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.iconOutline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #b7b5b5;
+  border-radius: 30px;
+  padding: 8px 14px;
+  height: 38px;
+  font-size: 13px;
+  font-family: "LufgaRegular", sans-serif;
+}
+
+.reset {
+  color: #b7b5b5;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 4px;
+  font-family: "LufgaRegular", sans-serif;
+}
+
+.itemsLength {
+  font-size: 13px;
+  color: #a0a0a0;
+  font-family: "LufgaRegular", sans-serif;
+  margin-bottom: 12px;
+}
+
+.sorterLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.sorterInput,
+.sorterSelect {
+  background: none;
+  border: none;
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  max-width: 110px;
+}
+
+.sorterInput::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+}
+
+.sorterReset {
+  background: none;
+  border: none;
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.noResults {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  color: #b0b0b0;
+  padding: 24px 0;
+}

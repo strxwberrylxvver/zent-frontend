@@ -9,7 +9,9 @@ export function Modal({ show, title, children }) {
         <div className="title">
           <p>{title}</p>
         </div>
-        <main>{children}</main>
+        <div className="main">
+          <main>{children}</main>
+        </div>
       </div>
     </div>
   ) : null;

@@ -1,0 +1,241 @@
+.profilePage {
+    padding: 24px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .profileHero {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .profileAvatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #8fbc8f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Jersey10", sans-serif;
+    font-size: 28px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  
+  .profileHeroInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  
+  .profileName {
+    font-family: "Jersey10", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .profileHandle {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #a0a0a0;
+  }
+  
+  .profileBadge {
+    display: inline-block;
+    background: #8fbc8f;
+    color: #fff;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-top: 4px;
+    width: fit-content;
+  }
+  
+  .profileXpSection {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .profileXpHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  
+  .profileXpLevel {
+    font-family: "Jersey10", sans-serif;
+    font-size: 18px;
+  }
+  
+  .profileXpCount {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #a0a0a0;
+  }
+  
+  .profileXpTrack {
+    height: 10px;
+    background: #e8f5e9;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .profileXpFill {
+    height: 100%;
+    background: linear-gradient(90deg, #8fbc8f, #66bb6a);
+    border-radius: 999px;
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  
+  .profileGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  @media (max-width: 700px) {
+    .profileGrid { grid-template-columns: 1fr; }
+  }
+  
+  .profileCard {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .profileCard--badges {
+    grid-column: 1 / -1;
+  }
+  
+  .profileCardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .profileCardHeader h2 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .profileCardSub {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #a0a0a0;
+    margin: 0;
+  }
+  
+  .profileEditBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #b7d4b3;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  
+  .profileEditBtn:hover { background: #8fbc8f; }
+  
+  .profileFields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .profileFieldReadonly {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: #3a3a3a;
+    cursor: default;
+  }
+  
+  .profileSaveBtn {
+    background: #8fbc8f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  
+  .profileSaveBtn:hover { background: #66bb6a; }
+  .profileSaveBtn:disabled { opacity: 0.6; cursor: default; }
+  
+  .profileError   { color: #e57373; font-size: 13px; font-family: "LufgaRegular", sans-serif; }
+  .profileSuccess { color: #66bb6a; font-size: 13px; font-family: "LufgaRegular", sans-serif; }
+  
+  .profileBadges {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .profileBadge {
+    background: rgba(143, 188, 143, 0.2);
+    border: 1px solid #b7d4b3;
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    width: auto !important;
+    margin: 0 !important;
+    color: inherit !important;
+    font-size: inherit !important;
+  }
+  
+  .profileBadge--locked {
+    opacity: 0.4;
+    filter: grayscale(1);
+  }
+  
+  .profileBadgeIcon { font-size: 28px; }
+  
+  .profileBadgeName {
+    font-family: "Jersey10", sans-serif;
+    font-size: 14px;
+    color: #1a1a1a;
+  }
+  
+  .profileBadgeDesc {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 10px;
+    color: #a0a0a0;
+  }

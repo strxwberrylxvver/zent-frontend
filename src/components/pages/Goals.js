@@ -1,8 +1,9 @@
 import GoalsCrudler from "../entities/savingsgoals/GoalsCrudler";
+import { useAuth } from "../auth/useAuth";
 
 function Goals() {
-  const loggedinUserID = "c41b8df7-8e57-4744-aa3c-215657baf916";
-  const goalsendpoint = `/savingsgoals/users/${loggedinUserID}`;
+  const {user} = useAuth();
+  const goalsendpoint = `/savingsgoals/users/${user?.userID}`;
   return (
     <section>
       <section className="goalsPageView">

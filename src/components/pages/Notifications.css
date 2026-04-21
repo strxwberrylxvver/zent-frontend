@@ -1,0 +1,173 @@
+.notificationsPage {
+  padding: 24px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notificationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.notificationsTitle {
+  font-family: "Jersey10", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.notificationsSub {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 14px;
+  color: #a0a0a0;
+  margin: 0;
+}
+
+.notificationsActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.notificationsFilters {
+  display: flex;
+  border: 1px solid #b7d4b3;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.notifFilter {
+  background: none;
+  border: none;
+  padding: 8px 18px;
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  color: #6b6b6b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.notifFilter--active {
+  background: #8fbc8f;
+  color: #fff;
+}
+
+.notifBadge {
+  background: #fff;
+  color: #8fbc8f;
+  border-radius: 999px;
+  font-size: 10px;
+  padding: 1px 6px;
+  font-weight: 700;
+}
+
+.notifMarkAll {
+  background: none;
+  border: 1px solid #b7d4b3;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  color: #6b6b6b;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.notifMarkAll:hover { background: rgba(175,209,176,0.3); }
+
+.notifCount {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 13px;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.notifList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notifEmpty {
+  text-align: center;
+  padding: 48px;
+  color: #b0b0b0;
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 14px;
+}
+
+.notifEmpty span { font-size: 36px; display: block; margin-bottom: 8px; }
+
+.notifItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background-color: rgba(175, 209, 176, 0.2);
+  border: 1px solid #b7d4b3;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.notifItem:hover { background-color: rgba(175, 209, 176, 0.4); }
+
+.notifItem--unread {
+  background-color: rgba(143, 188, 143, 0.28);
+  border-color: #8fbc8f;
+}
+
+.notifIcon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notifContent { flex: 1; min-width: 0; }
+
+.notifItemTitle {
+  font-family: "Jersey10", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 3px;
+}
+
+.notifItemBody {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+.notifRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.notifTime {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 11px;
+  color: #b0b0b0;
+  white-space: nowrap;
+}
+
+.notifDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8fbc8f;
+}

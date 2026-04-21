@@ -1,14 +1,17 @@
 import TransactionsCrudler from "../entities/transactions/TransactionsCrudler.js";
-import "./Transactions.css";
-function Budgets() {
-  const loggedinUserID = "c41b8df7-8e57-4744-aa3c-215657baf916";
-  const transactionsendpoint = `/transactions/users/${loggedinUserID}`;
+import "../../global.css";
+import { useAuth } from "../auth/useAuth";
+
+function Transactions() {
+  const {user} = useAuth();
+  const transactionsendpoint = `/transactions/users/${user?.userID}`;
+  
   return (
     <section>
       <section className="transactionPageView">
         <h1>Transactions</h1>
         <div className="caption">
-          <p>Overview of your transactionss</p>
+          <p>Overview of your transactions</p>
         </div>
         <TransactionsCrudler endpoint={transactionsendpoint} />
       </section>
@@ -16,4 +19,5 @@ function Budgets() {
   );
 }
 
-export default Budgets;
+export default Transactions;
+

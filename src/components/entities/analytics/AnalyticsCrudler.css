@@ -1,0 +1,77 @@
+.analyticsPage {
+    padding: 24px;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .analyticsHeader {
+    margin-bottom: 4px;
+  }
+  
+  .analyticsTitle {
+    font-family: "Jersey10", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 4px;
+  }
+  
+  .analyticsSubtitle {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    color: #a0a0a0;
+    margin: 0;
+  }
+  
+  .analyticsLoadingText {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    color: #b0b0b0;
+    padding: 40px 0;
+  }
+    
+  .analyticsStatsRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+  }
+    
+  .analyticsChartsRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  @media (max-width: 700px) {
+    .analyticsChartsRow {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .analyticsCard {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 20px 22px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  
+  .analyticsCard--full {
+    grid-column: 1 / -1;
+  }
+  
+  .analyticsCardTitle {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 16px;
+  }
+    
+  .analyticsGoalsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }

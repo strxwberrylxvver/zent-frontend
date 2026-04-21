@@ -1,0 +1,200 @@
+.parentDash {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .parentLinkForm {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .parentLinkForm h2 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 4px;
+  }
+  
+  .parentLinkForm p {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #a0a0a0;
+    margin: 0 0 14px;
+  }
+  
+  .parentLinkRow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .parentLinkInput {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid #b7d4b3;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    background: rgba(255,255,255,0.7);
+  }
+  
+  .parentLinkBtn {
+    background: #8fbc8f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  
+  .parentLinkBtn:hover   { background: #66bb6a; }
+  .parentLinkBtn:disabled { opacity: 0.6; cursor: default; }
+  
+  .parentError {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #e57373;
+    margin: 8px 0 0;
+  }
+  
+  .parentLoading, .parentEmpty {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    color: #b0b0b0;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .parentEmpty span { font-size: 40px; display: block; margin-bottom: 8px; }
+  
+  .parentStudentCard {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .parentStudentName {
+    font-family: "Jersey10", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .parentStatRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  @media (max-width: 600px) { .parentStatRow { grid-template-columns: 1fr; } }
+  
+  .parentStat {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid #b7d4b3;
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .parentStatLabel {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a0a0a0;
+  }
+  
+  .parentStatValue {
+    font-family: "Jersey10", sans-serif;
+    font-size: 24px;
+    color: #1a1a1a;
+  }
+  
+  .parentSection h3 {
+    font-family: "Jersey10", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+  }
+  
+  .parentBudgetRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  
+  .parentBudgetName {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #3a3a3a;
+    width: 110px;
+    flex-shrink: 0;
+  }
+  
+  .parentBudgetTrack {
+    flex: 1;
+    height: 8px;
+    background: #e8f5e9;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .parentBudgetFill {
+    height: 100%;
+    border-radius: 999px;
+    background: #8fbc8f;
+    transition: width 0.5s ease;
+  }
+  
+  .parentBudgetMeta {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    color: #a0a0a0;
+    white-space: nowrap;
+    width: 100px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  
+  .parentGoalsRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .parentGoalCard {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid #b7d4b3;
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .parentGoalName {
+    font-family: "Jersey10", sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    margin: 0;
+  }
