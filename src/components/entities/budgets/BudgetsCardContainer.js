@@ -5,52 +5,89 @@ import FilterIcon from "../../assets/icons/filter.png";
 import Action from "../../UI/Actions";
 import "./BudgetsCardContainer.css";
 
-function BudgetsCardContainer({ budgets, onSelect, onClick }) {
+function BudgetsCardContainer({ budgets, onSelect, onClick, filters, onFilterChange, onReset }) {
+  const hasActiveFilters =
+    filters.search ||
+    filters.sort !== "date" ||
+    filters.order !== "desc";
+
   return (
     <>
       <div className="topBar">
         <div className="sorters">
-          <div className="iconOutline">
+
+          <label className="iconOutline sorterLabel">
             <img src={CalendarIcon} alt="Calendar" className="icon" />
-          </div>
-          <div className="iconOutline">
-            <p>This month</p>
-          </div>
-          <div className="iconOutline">
+            <input
+              type="month"
+              className="sorterInput"
+              value={filters.month}
+              onChange={(e) => onFilterChange("month", e.target.value)}
+            />
+          </label>
+
+          <label className="iconOutline sorterLabel">
             <img src={SortIcon} alt="Sort" className="icon" />
-          </div>
-          <div className="iconOutline">
-            <p>Sort by: Default </p>
-          </div>
-          <div className="iconOutline">
+            <select
+              className="sorterSelect"
+              value={filters.sort}
+              onChange={(e) => onFilterChange("sort", e.target.value)}
+            >
+              <option value="date">Date</option>
+              <option value="amount">Amount</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
+
+          <label className="iconOutline sorterLabel">
+            <select
+              className="sorterSelect"
+              value={filters.order}
+              onChange={(e) => onFilterChange("order", e.target.value)}
+            >
+              <option value="desc">Descending</option>
+              <option value="asc">Ascending</option>
+            </select>
+          </label>
+
+          <label className="iconOutline sorterLabel">
             <img src={FilterIcon} alt="Filter" className="icon" />
-          </div>
-          <div className="reset">
-            <p>Reset all </p>
-          </div>
+            <input
+              type="text"
+              className="sorterInput"
+              placeholder="Search..."
+              value={filters.search}
+              onChange={(e) => onFilterChange("search", e.target.value)}
+            />
+          </label>
+
+          {hasActiveFilters && (
+            <button className="reset sorterReset" onClick={onReset}>
+              Reset all
+            </button>
+          )}
         </div>
+
         <div className="addButton">
           <Action.Tray>
-            <Action.Add
-              showText
-              buttonText="+ Add new budget "
-              onClick={onClick}
-            />
+            <Action.Add showText buttonText="+ Add new budget" onClick={onClick} />
           </Action.Tray>
         </div>
       </div>
+
       <div className="itemsLength">
-            <p>{budgets.length} items </p>
-          </div>
-      <div className="budgetsCardContainer">
-        {budgets.map((budget) => (
-          <BudgetsCard
-            key={budget.BudgetID}
-            budget={budget}
-            onClick={() => onSelect(budget)}
-          />
-        ))}
+        <p>{budgets.length} items</p>
       </div>
+
+      {budgets.length === 0 ? (
+        <p className="noResults">No budgets match your filters.</p>
+      ) : (
+        <div className="budgetsCardContainer">
+          {budgets.map((budget) => (
+            <BudgetsCard key={budget.BudgetID} budget={budget} onClick={() => onSelect(budget)} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

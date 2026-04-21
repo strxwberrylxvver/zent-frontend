@@ -1,4 +1,3 @@
-import "./TransactionsCrudler.css";
 import { useState } from "react";
 import { API } from "../../api/API.js";
 import useLoad from "../../api/useLoad.js";
