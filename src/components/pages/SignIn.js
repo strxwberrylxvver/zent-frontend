@@ -23,7 +23,7 @@ export default function SignIn() {
 
     if (response.isSuccess) {
       login(response.result);
-      navigate("/dashboard");
+      navigate("/");
     } else {
       setErrors({ general: response.message });
     }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./NotificationsPage.css";
+import "./Notifications.css";
 
 const DUMMY_NOTIFICATIONS = [
   { id: 1, type: "goal",        title: "Goal milestone reached!",          body: "You're 75% of the way to your Emergency Fund goal.",   time: "2h ago",  read: false },
@@ -19,7 +19,7 @@ const TYPE_ICONS = {
   transaction: "💳",
 };
 
-function NotificationsPage() {
+function Notifications() {
   const [notifications, setNotifications] = useState(DUMMY_NOTIFICATIONS);
   const [filter, setFilter] = useState("all");
 
@@ -90,4 +90,4 @@ function NotificationsPage() {
   );
 }
 
-export default NotificationsPage;
+export default Notifications;

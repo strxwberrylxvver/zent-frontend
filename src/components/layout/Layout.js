@@ -2,15 +2,14 @@ import { useState } from "react";
 import Header from "./Header.js";
 import NavBar from "./NavBar.js";
 import Footer from "./Footer.js";
-
+import TopBar from "./TopBar.js";
 import "./Layout.css";
 
 function Layout(props) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
     <div className="app-container">
       <aside className={sidebarOpen ? "sidebar open" : "sidebar closed"}>
@@ -20,9 +19,8 @@ function Layout(props) {
           {sidebarOpen ? "<" : ">"}
         </button>
       </aside>
-      <div
-        className={sidebarOpen ? "main-wrapper open" : "main-wrapper closed"}
-      >
+      <div className={sidebarOpen ? "main-wrapper open" : "main-wrapper closed"}>
+        <TopBar />
         <main>{props.children}</main>
         <Footer />
       </div>
