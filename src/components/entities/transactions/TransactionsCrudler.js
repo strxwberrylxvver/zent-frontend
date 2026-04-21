@@ -2,14 +2,21 @@ import "./TransactionsCrudler.css";
 import { useState } from "react";
 import { API } from "../../api/API.js";
 import useLoad from "../../api/useLoad.js";
+import useFilters, {
+  buildQueryString,
+  currentMonth,
+} from "../../api/useFilters.js";
 import TransactionForm from "./TransactionsForm.js";
 import TransactionView from "./TransactionView.js";
 import Action from "../../UI/Actions.js";
 import TransactionsTableContainer from "./TransactionsTableContainer";
 import { useModal, Modal } from "../../UI/Modal.js";
 
-export default function TransactionsCrudler({ endpoint }) {
-  const [transactions, , loadingMessage, loadTransactions] = useLoad(endpoint);
+export default function TransactionsCrudler({ endpoint, categories }) {
+  const { filters, setFilter, reset } = useFilters({ month: currentMonth() });
+  const filteredEndpoint = endpoint + buildQueryString(filters);
+  const [transactions, , loadingMessage, loadTransactions] =
+    useLoad(filteredEndpoint);
   const [showDetails, , openDetails, closeDetails] = useModal(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
   const [mode, setMode] = useState("add");
@@ -31,22 +38,25 @@ export default function TransactionsCrudler({ endpoint }) {
   const handleSuccess = async () => {
     closeDetails();
     setSelectedTransaction(null);
-    await loadTransactions(endpoint);
+    await loadTransactions(filteredEndpoint);
   };
 
   return (
     <section className="TransactionCrudler">
       {!transactions ? (
         <p>{loadingMessage}</p>
-      ) : transactions.length === 0 ? (
-        <p>No transactions.</p>
       ) : (
         <TransactionsTableContainer
           transactions={transactions}
           onSelect={handleSelect}
           onClick={handleAdd}
+          filters={filters}
+          onFilterChange={setFilter}
+          onReset={reset}
+          categories={categories}
         />
       )}
+
       {showDetails && (
         <Modal
           show={showDetails}
@@ -68,7 +78,6 @@ export default function TransactionsCrudler({ endpoint }) {
               onSuccess={handleSuccess}
             />
           )}
-
           {mode === "view" && selectedTransaction && (
             <TransactionView
               transaction={selectedTransaction}
@@ -77,21 +86,17 @@ export default function TransactionsCrudler({ endpoint }) {
               onClose={handleCancel}
             />
           )}
-
           {mode === "edit" && selectedTransaction && (
             <TransactionForm
               initialTransaction={selectedTransaction}
               onCancel={() => setMode("view")}
               onSuccess={handleSuccess}
-              reloadTransactions={() => {
-                loadTransactions(endpoint);
-              }}
+              reloadTransactions={() => loadTransactions(filteredEndpoint)}
             />
           )}
           {mode === "delete" && selectedTransaction && (
             <>
               <p>Are you sure you want to delete this transaction?</p>
-
               <Action.Tray>
                 <Action.Yes
                   showText
@@ -99,7 +104,7 @@ export default function TransactionsCrudler({ endpoint }) {
                     await API.delete(
                       `/transactions/${selectedTransaction.TransactionID}`
                     );
-                    await loadTransactions(endpoint);
+                    await loadTransactions(filteredEndpoint);
                     closeDetails();
                     setSelectedTransaction(null);
                     setMode("add");
