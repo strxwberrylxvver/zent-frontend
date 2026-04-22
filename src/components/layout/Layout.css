@@ -47,7 +47,9 @@
   padding: 20px;
   width: 100%;
 }
-
+.main-wrapper.full {
+  margin-left: 0;
+}
 .sidebar-toggle {
   position: absolute;
   bottom: 20px;
