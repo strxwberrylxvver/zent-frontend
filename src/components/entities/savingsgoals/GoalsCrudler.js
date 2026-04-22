@@ -10,7 +10,7 @@ import useFilters, { buildQueryString, currentMonth } from "../../api/useFilters
 import "./GoalsCrudler.css";
 
 function GoalsCrudler({ endpoint, showTitle = true }) {
-  const { filters, setFilter, reset } = useFilters({ month: currentMonth() });
+  const { filters, setFilter, reset } = useFilters();
   const filteredEndpoint = endpoint + buildQueryString(filters);
 
   const [goals, , loadingMessage, loadGoals] = useLoad(filteredEndpoint);

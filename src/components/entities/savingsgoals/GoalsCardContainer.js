@@ -50,17 +50,6 @@ function GoalsCardContainer({ goals, onSelect, onAdd, filters, onFilterChange, o
             </select>
           </label>
 
-          <label className="iconOutline sorterLabel">
-            <img src={FilterIcon} alt="Filter" className="icon" />
-            <input
-              type="text"
-              className="sorterInput"
-              placeholder="Search..."
-              value={filters.search}
-              onChange={(e) => onFilterChange("search", e.target.value)}
-            />
-          </label>
-
           {hasActiveFilters && (
             <button className="reset sorterReset" onClick={onReset}>
               Reset all
