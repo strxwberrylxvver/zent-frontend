@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { API } from "../api/API";
 import { useAuth } from "../auth/useAuth";
 import FormItem from "../UI/Form";
-import LotusIcon from "../assets/icons/LotusIcon.png";
 import "./Auth.css";
 
 export default function SignIn() {
@@ -72,7 +71,7 @@ export default function SignIn() {
                 className="authEyeBtn"
                 onClick={() => setShowPassword((v) => !v)}
               >
-                {showPassword ? "⌣" : "𓁺"}
+                {showPassword ? "𓁺" : "⌣"}
               </button>
             </div>
           </FormItem>

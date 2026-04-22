@@ -9,7 +9,6 @@ import Action from "../../UI/Actions.js";
 import BudgetGauge from "./BudgetGauge";
 import BudgetRecentTransactions from "./BudgetRecentTransactions";
 import useFilters, { buildQueryString, currentMonth } from "../../api/useFilters.js";
-import EmptyState from "../../UI/EmptyState.js";
 import "./BudgetsCrudler.css";
 
 function BudgetsCrudler({ endpoint, showTitle = true }) {

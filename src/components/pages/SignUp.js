@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { API } from "../api/API";
 import FormItem from "../UI/Form";
-import LotusIcon from "../assets/icons/LotusIcon.png";
 import "./Auth.css";
 
 const USER_TYPES = [
@@ -146,7 +145,7 @@ export default function SignUp() {
                 className="authEyeBtn"
                 onClick={() => setShowPassword((v) => !v)}
               >
-                {showPassword ? "⌣" : "𓁺"}
+                {showPassword ? "𓁺" : "⌣"}
               </button>
             </div>
           </FormItem>
@@ -173,7 +172,7 @@ export default function SignUp() {
                 className="authEyeBtn"
                 onClick={() => setShowConfirm((v) => !v)}
               >
-                {showConfirm ? "⌣" : "𓁺"}
+                {showConfirm ? "𓁺" : "⌣"}
               </button>
             </div>
           </FormItem>
