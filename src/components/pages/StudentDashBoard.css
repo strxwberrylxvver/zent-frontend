@@ -22,7 +22,6 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    border-top: 4px solid var(--accent, #8fbc8f);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: relative;
   }
@@ -174,4 +173,85 @@
     font-size: 13px;
     color: #b0b0b0;
     padding: 16px 0;
+  }
+
+  .dashStatsRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  
+  .dashGoalsBox {
+    background-color: rgba(175, 209, 176, 0.36);
+    border: 1px solid #b7d4b3;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .dashGoalsOverview {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .dashGoalItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .dashGoalTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashGoalName {
+    font-family: "Jersey10", sans-serif;
+    font-size: 17px;
+    color: #1a1a1a;
+  }
+  
+  .dashGoalBadge {
+    background: #8fbc8f;
+    color: #fff;
+    font-size: 10px;
+    font-family: "LufgaRegular", sans-serif;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  
+  .dashGoalBar {
+    position: relative;
+    background: rgba(175, 209, 176, 0.3);
+    border-radius: 999px;
+    height: 20px;
+    overflow: hidden;
+  }
+  
+  .dashGoalFill {
+    height: 100%;
+    background: #8fbc8f;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+  
+  .dashGoalPct {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-family: "LufgaRegular", sans-serif;
+    font-weight: 600;
+    color: #2d2d2d;
+  }
+  
+  .dashGoalAmounts {
+    display: flex;
+    justify-content: space-between;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 11px;
+    color: #a0a0a0;
   }

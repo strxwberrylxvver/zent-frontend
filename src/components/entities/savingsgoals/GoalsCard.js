@@ -1,31 +1,42 @@
 import "./GoalsCard.css";
 
 function GoalsCard({ goal, onClick }) {
+  const { GoalName, SavedAmount, TargetAmount, TargetDate } = goal;
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+    return date.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" });
   };
-  const progress = (goal.SavedAmount / goal.TargetAmount) * 100;
+
+  const saved = parseFloat(SavedAmount) || 0;
+  const target = parseFloat(TargetAmount) || 1;
+  const pct = Math.min(Math.round((saved / target) * 100), 100);
+  const remaining = (target - saved).toFixed(2);
+  const isComplete = saved >= target;
+
   return (
-    <div className="goalsCard" onClick={onClick}>
-      <div className="goalHeader">
-        <h3> {goal.GoalName}</h3>
+    <div className={`goalsCard ${isComplete ? "goalsCardComplete" : ""}`}>
+      <div className="goalsCardTop">
+        <h2 className="goalsCardName">{GoalName}</h2>
+        <div className="goalsCardRight">
+          {isComplete && <span className="goalsCardBadge">✓ Complete</span>}
+          <button className="goalEditBtn" onClick={onClick}>✎</button>
+        </div>
       </div>
-      <div className="goalDate">
-        <h3> {formatDate(goal.TargetDate)}</h3>
+
+      <p className="goalDateLabel">Due {formatDate(TargetDate)}</p>
+
+      <div className="goalsCardAmounts">
+        <span className="goalRemainingAmt">£{remaining}</span>
+        <span className="goalTotalAmt"> / £{target.toFixed(2)} remaining</span>
       </div>
-      <div className="goalAmount">
-        <h3>
-          £{goal.SavedAmount} / £{goal.TargetAmount} saved
-        </h3>
+
+      <div className="goalsProgressBarWrap">
+        <div className="goalsProgressFill" style={{ width: `${pct}%` }} />
+        <span className="goalsProgressLabel">{pct}%</span>
       </div>
-      <div className="progressBar">
-        <div className="progressFill" style={{ width: `${progress}%` }} />
-      </div>
+
+      <p className="goalsSavedLabel">£{saved.toFixed(2)} saved of £{target.toFixed(2)}</p>
     </div>
   );
 }

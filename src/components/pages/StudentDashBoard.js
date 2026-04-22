@@ -1,4 +1,3 @@
-import GoalsCrudler from "../entities/savingsgoals/GoalsCrudler";
 import TransactionsTable from "../entities/transactions/TransactionsTable";
 import useLoad from "../api/useLoad";
 import { useAuth } from "../auth/useAuth";
@@ -6,6 +5,15 @@ import { useMemo } from "react";
 import "./StudentDashBoard.css";
 
 const MONTH_LABELS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+const MOCK_BILLS = [
+  { id: 1, name: "Monthly Rent",     amount: 2300, split: 4, paid: ["you", "alice"] },
+  { id: 2, name: "Internet",         amount: 60,   split: 4, paid: ["you", "alice", "bob"] },
+  { id: 3, name: "Electricity",      amount: 120,  split: 4, paid: ["alice"] },
+  { id: 4, name: "Groceries (Week)", amount: 280,  split: 4, paid: ["you"] },
+  { id: 5, name: "Council Tax",      amount: 180,  split: 4, paid: ["you", "alice", "bob", "carol"] },
+  { id: 6, name: "Netflix",          amount: 18,   split: 4, paid: [] },
+];
 
 const fmt = (n) => {
   const abs = Math.abs(Number(n));
@@ -72,25 +80,78 @@ function SpendingChart({ transactions }) {
   );
 }
 
+function GoalsOverview({ goals }) {
+  if (!goals) return <p className="dashLoading">Loading...</p>;
+  if (goals.length === 0) return <p className="dashEmpty">No goals yet.</p>;
+
+  const recent = [...goals]
+    .sort((a, b) => new Date(b.TargetDate) - new Date(a.TargetDate))
+    .slice(0, 3);
+
+  return (
+    <div className="dashGoalsOverview">
+      {recent.map((goal) => {
+        const saved = parseFloat(goal.SavedAmount) || 0;
+        const target = parseFloat(goal.TargetAmount) || 1;
+        const pct = Math.min(Math.round((saved / target) * 100), 100);
+        const isComplete = saved >= target;
+        return (
+          <div key={goal.GoalID} className="dashGoalItem">
+            <div className="dashGoalTop">
+              <span className="dashGoalName">{goal.GoalName}</span>
+              {isComplete && <span className="dashGoalBadge">✓ Done</span>}
+            </div>
+            <div className="dashGoalBar">
+              <div className="dashGoalFill" style={{ width: `${pct}%` }} />
+              <span className="dashGoalPct">{pct}%</span>
+            </div>
+            <div className="dashGoalAmounts">
+              <span>£{saved.toFixed(2)} saved</span>
+              <span>£{target.toFixed(2)}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function StudentDashBoard() {
   const { user } = useAuth();
   const transactionsEndpoint = `/transactions/users/${user?.userID}`;
   const goalsEndpoint = `/savingsgoals/users/${user?.userID}`;
+  const budgetsEndpoint = `/budgets/users/${user?.userID}`;
+
   const [transactions] = useLoad(transactionsEndpoint);
+  const [goals] = useLoad(goalsEndpoint);
+  const [budgets] = useLoad(budgetsEndpoint);
 
   const stats = useMemo(() => {
     if (!transactions) return null;
     const now = new Date();
-    const income = transactions.filter((t) => Number(t.Amount) > 0).reduce((s, t) => s + Number(t.Amount), 0);
+    const income  = transactions.filter((t) => Number(t.Amount) > 0).reduce((s, t) => s + Number(t.Amount), 0);
     const expense = transactions.filter((t) => Number(t.Amount) < 0).reduce((s, t) => s + Math.abs(Number(t.Amount)), 0);
     const balance = income - expense;
-    const monthTx = transactions.filter((t) => {
-      const d = new Date(t.Date);
+    const txCount = transactions.length;
+    return { balance, txCount };
+  }, [transactions]);
+
+  const monthlyBudget = useMemo(() => {
+    if (!budgets) return null;
+    const now = new Date();
+    const thisMonth = budgets.filter((b) => {
+      const d = new Date(b.BudgetDate);
       return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
     });
-    const monthSpend = monthTx.filter((t) => Number(t.Amount) < 0).reduce((s, t) => s + Math.abs(Number(t.Amount)), 0);
-    return { balance, income, expense, monthSpend, txCount: transactions.length };
-  }, [transactions]);
+    return thisMonth.reduce((s, b) => s + Number(b.TotalAmount), 0);
+  }, [budgets]);
+
+  const sharedBillsOwed = useMemo(() => {
+    return MOCK_BILLS.reduce((s, b) => {
+      if (!b.paid.includes("you")) return s + b.amount / b.split;
+      return s;
+    }, 0);
+  }, []);
 
   const sorted = transactions
     ? [...transactions].sort((a, b) => new Date(b.Date) - new Date(a.Date)).slice(0, 8)
@@ -100,10 +161,9 @@ function StudentDashBoard() {
     <div className="studentDash">
       {stats && (
         <div className="dashStatsRow">
-          <StatCard label="Total Balance" {...fmt(stats.balance)} sub={`${stats.txCount} transactions`} accent="#8fbc8f" />
-          <StatCard label="Total Income"  {...fmt(stats.income)}  sub="all time" accent="#66bb6a" />
-          <StatCard label="Total Expense" {...fmt(-stats.expense)} sub="all time" accent="#b7d4b3" />
-          <StatCard label="This Month"    {...fmt(-stats.monthSpend)} sub="spending" accent="#a8d5a2" />
+          <StatCard label="Total Balance"   {...fmt(stats.balance)}      sub={`${stats.txCount} transactions`} accent="#8fbc8f" />
+          <StatCard label="Monthly Budget"  {...fmt(monthlyBudget ?? 0)} sub="this month's total"              accent="#66bb6a" />
+          <StatCard label="Shared Bills"    {...fmt(sharedBillsOwed)}    sub="you still owe"                   accent="#b7d4b3" />
         </div>
       )}
 
@@ -125,8 +185,11 @@ function StudentDashBoard() {
           )}
         </div>
 
-        <div className="dashGoals">
-          <GoalsCrudler endpoint={goalsEndpoint} />
+        <div className="dashGoalsBox">
+          <div className="dashSectionHeader">
+            <h2>Savings Goals</h2>
+          </div>
+          <GoalsOverview goals={goals} />
         </div>
       </div>
     </div>

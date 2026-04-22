@@ -1,9 +1,19 @@
 .goalsCardContainer {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
+@media (max-width: 700px) {
+  .goalsCardContainer { grid-template-columns: 1fr; }
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
 .sorters {
   display: flex;
@@ -11,6 +21,8 @@
   gap: 8px;
   flex-wrap: wrap;
   flex: 1;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 .icon {
@@ -32,27 +44,7 @@
   font-family: "LufgaRegular", sans-serif;
 }
 
-.reset {
-  color: #b7b5b5;
-  font-size: 13px;
-  cursor: pointer;
-  padding: 8px 4px;
-  font-family: "LufgaRegular", sans-serif;
-}
-
-.itemsLength {
-  font-size: 13px;
-  color: #a0a0a0;
-  font-family: "LufgaRegular", sans-serif;
-  margin-bottom: 12px;
-}
-
-.sorterLabel {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
+.sorterLabel { cursor: pointer; }
 
 .sorterInput,
 .sorterSelect {
@@ -72,6 +64,14 @@
   position: absolute;
 }
 
+.reset {
+  color: #b7b5b5;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 4px;
+  font-family: "LufgaRegular", sans-serif;
+}
+
 .sorterReset {
   background: none;
   border: none;
@@ -81,9 +81,56 @@
   padding: 0 4px;
 }
 
+.itemsLength {
+  font-size: 13px;
+  color: #a0a0a0;
+  font-family: "LufgaRegular", sans-serif;
+  margin-bottom: 12px;
+}
+
 .noResults {
   font-family: "LufgaRegular", sans-serif;
   font-size: 13px;
   color: #b0b0b0;
   padding: 24px 0;
+}
+
+.goalsSummary {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(175, 209, 176, 0.2);
+  border: 1px solid #b7d4b3;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin: 16px 0 12px;
+}
+
+.goalsSummaryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.goalsSummaryCount {
+  font-family: "Jersey10", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  color: #2d2d2d;
+}
+
+.goalsSummaryCount.inProgress { color: #8fbc8f; }
+.goalsSummaryCount.complete { color: #4a9e4a; }
+
+.goalsSummaryLabel {
+  font-family: "LufgaRegular", sans-serif;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.goalsSummaryDivider {
+  width: 1px;
+  height: 40px;
+  background: #b7d4b3;
 }

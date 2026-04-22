@@ -1,0 +1,206 @@
+.authPage {
+    min-height: 100vh;
+    background: #fdf6ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  
+  .authCard {
+    background: #fff;
+    border: 1px solid #b7d4b3;
+    border-radius: 28px;
+    padding: 40px 44px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 4px 24px rgba(143, 188, 143, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .authLogo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .authLogoIcon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  .authLogo span {
+    font-family: "Jersey10", sans-serif;
+    font-size: 24px;
+    color: #1a1a1a;
+  }
+  
+  .authTitle {
+    font-family: "Jersey10", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .authSubtitle {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    color: #a0a0a0;
+    margin: 0 0 12px;
+  }
+  
+  .authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  
+  .authRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .authInput {
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 1.5px solid #e0e0e0;
+    background: #fafafa;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+  }
+  
+  .authInput:focus {
+    border-color: #8fbc8f;
+    background: #fff;
+  }
+  
+  .authInput::placeholder {
+    color: #bbb;
+  }
+  
+  .authInputError {
+    border-color: #e53935;
+  }
+  
+  .authInputWrap {
+    position: relative;
+  }
+  
+  .authEyeBtn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    line-height: 1;
+    box-shadow: none;
+  }
+  
+  .authEyeBtn:hover {
+    transform: translateY(-50%);
+    box-shadow: none;
+  }
+  
+  .authUserTypes {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .authTypeBtn {
+    flex: 1;
+    padding: 10px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 50px;
+    background: #fafafa;
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  
+  .authTypeBtn--active {
+    border-color: #8fbc8f;
+    background: rgba(143, 188, 143, 0.15);
+    color: #4a9e4a;
+    font-weight: 600;
+  }
+  
+  .authTypeBtn:hover:not(.authTypeBtn--active) {
+    border-color: #b7d4b3;
+    color: #555;
+  }
+  
+  .authSubmitBtn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    border: none;
+    background: #8fbc8f;
+    color: #fff;
+    font-family: "Jersey10", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 4px;
+  }
+  
+  .authSubmitBtn:hover:not(:disabled) {
+    background: #66bb6a;
+    transform: translateY(-2px);
+  }
+  
+  .authSubmitBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+  }
+  
+  .authError {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #e53935;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .authFieldError {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 12px;
+    color: #e53935;
+    margin: 0;
+  }
+  
+  .authSwitch {
+    font-family: "LufgaRegular", sans-serif;
+    font-size: 13px;
+    color: #a0a0a0;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .authLink {
+    color: #4a9e4a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .authLink:hover {
+    text-decoration: underline;
+  }

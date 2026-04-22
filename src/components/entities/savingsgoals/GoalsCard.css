@@ -1,61 +1,126 @@
 .goalsCard {
-  flex: 1;
-  min-width: 321px;
-  max-width: 321px;
-
+  border: 1px solid #b7d4b3;
+  border-radius: 30px;
   padding: 20px;
-  background-color: rgba(175, 209, 176, 0.36);
-  border: 2px solid #b7d4b3;
-  border-radius: 16px;
-  margin: 10px;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  background-color: rgba(175, 209, 176, 0.36);
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+  width: 100%;
+  min-width: 0;
 }
 
-.goalsPageView .goalsCard {
-  min-width: 100%;
-  max-width: 100%;
-}
 .goalsCard:hover {
-  background-color: #afd1b0;
-  cursor: pointer;
   transform: translateY(-3px);
-  transition: transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(143, 188, 143, 0.3);
 }
 
-.goalHeader h3 {
-  font-size: 25px;
-  font-weight: 600;
-  text-align: center;
+.goalsCardComplete {
+  border-color: #8fbc8f;
+  background-color: rgba(143, 188, 143, 0.2);
 }
 
-.goalAmount h3 {
+.goalsCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.goalsCardRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.goalsCardName {
+  font-size: 22px;
+  font-family: "Jersey10", sans-serif;
+}
+
+.goalsCardBadge {
+  background: #8fbc8f;
+  color: #fff;
+  font-size: 11px;
+  font-family: "LufgaRegular", sans-serif;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.goalEditBtn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #b7d4b3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   font-size: 20px;
-  font-weight: 500;
-  color: #3b3b3b;
-  margin-top: 15px;
-  text-align: right;
+  transform: scaleX(-1);
+  background: none;
+  flex-shrink: 0;
 }
 
-.goalDate h3 {
-  font-size: 18px;
-  color: #6b6b6b;
-  text-align: center;
+.goalEditBtn:hover {
+  transform: scaleX(-1) translateY(-3px);
 }
 
-.progressBar {
-  height: 15px;
-  background-color: #cfe3cc;
-  border-radius: 20px;
+.goalDateLabel {
+  font-size: 12px;
+  color: #a3a3a3;
+  font-family: "LufgaRegular", sans-serif;
+}
+
+.goalsCardAmounts {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.goalRemainingAmt {
+  font-size: 28px;
+  font-family: "Jersey10", sans-serif;
+  color: #2d2d2d;
+  line-height: 1;
+}
+
+.goalTotalAmt {
+  font-size: 13px;
+  color: #8fbc8f;
+  font-family: "LufgaRegular", sans-serif;
+}
+
+.goalsProgressBarWrap {
+  position: relative;
+  background: rgba(175, 209, 176, 0.3);
+  border-radius: 999px;
+  height: 22px;
   overflow: hidden;
 }
 
-.progressFill {
+.goalsProgressFill {
   height: 100%;
-  background-color: #8fbc8f;
-  border-radius: 20px;
-  transition: width 0.3s ease;
+  background: #8fbc8f;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.goalsProgressLabel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-family: "LufgaRegular", sans-serif;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.goalsSavedLabel {
+  font-size: 12px;
+  color: #a3a3a3;
+  font-family: "LufgaRegular", sans-serif;
 }

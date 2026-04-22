@@ -8,6 +8,9 @@ function Goals() {
     <section>
       <section className="goalsPageView">
         <h1>Savings Goals</h1>
+        <div className="caption">
+          <p>An overview of your savings goals</p>
+        </div>
         <GoalsCrudler endpoint={goalsendpoint} showTitle={false}/>
       </section>
     </section>
