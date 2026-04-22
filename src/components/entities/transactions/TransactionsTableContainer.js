@@ -72,9 +72,9 @@ function TransactionsTableContainer({
 
       {transactions.length === 0 ? (
         isFiltered ? (
-          <EmptyState icon="🔍" title="No results" message="No transactions match your current filters." />
+          <EmptyState  title="No results" message="No transactions match your current filters." />
         ) : (
-          <EmptyState icon="💸" title="No transactions yet" message="Add your first transaction to start tracking your spending." />
+          <EmptyState  title="No transactions yet" message="Add your first transaction to start tracking your spending." />
         )
       ) : (
         <div className="TransactionsTableContainer">
