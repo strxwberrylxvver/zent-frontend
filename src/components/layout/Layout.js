@@ -3,10 +3,12 @@ import Header from "./Header.js";
 import NavBar from "./NavBar.js";
 import Footer from "./Footer.js";
 import TopBar from "./TopBar.js";
+import { useAuth } from "../auth/useAuth";
 import "./Layout.css";
 
 function Layout(props) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { user } = useAuth();
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
@@ -19,9 +21,13 @@ function Layout(props) {
           {sidebarOpen ? "<" : ">"}
         </button>
       </aside>
-      <div className={sidebarOpen ? "main-wrapper open" : "main-wrapper closed"}>
-        <TopBar />
-        <main>{props.children}</main>
+      <div
+        className={sidebarOpen ? "main-wrapper open" : "main-wrapper closed"}
+      >
+        <main>
+          {user && <TopBar />}
+          {props.children}
+        </main>
         <Footer />
       </div>
     </div>

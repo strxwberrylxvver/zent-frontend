@@ -5,17 +5,21 @@ import FilterIcon from "../../assets/icons/filter.png";
 import Action from "../../UI/Actions";
 import "./BudgetsCardContainer.css";
 
-function BudgetsCardContainer({ budgets, onSelect, onClick, filters, onFilterChange, onReset }) {
+function BudgetsCardContainer({
+  budgets,
+  onSelect,
+  onClick,
+  filters,
+  onFilterChange,
+  onReset,
+}) {
   const hasActiveFilters =
-    filters.search ||
-    filters.sort !== "date" ||
-    filters.order !== "desc";
+    filters.search || filters.sort !== "date" || filters.order !== "desc";
 
   return (
     <>
       <div className="topBar">
         <div className="sorters">
-
           <label className="iconOutline sorterLabel">
             <img src={CalendarIcon} alt="Calendar" className="icon" />
             <input
@@ -27,7 +31,7 @@ function BudgetsCardContainer({ budgets, onSelect, onClick, filters, onFilterCha
           </label>
 
           <label className="iconOutline sorterLabel">
-            <img src={SortIcon} alt="Sort" className="icon" />
+            <img src={FilterIcon} alt="Sort" className="icon" />
             <select
               className="sorterSelect"
               value={filters.sort}
@@ -40,6 +44,7 @@ function BudgetsCardContainer({ budgets, onSelect, onClick, filters, onFilterCha
           </label>
 
           <label className="iconOutline sorterLabel">
+            <img src={SortIcon} alt="Sort" className="icon" />
             <select
               className="sorterSelect"
               value={filters.order}
@@ -59,7 +64,11 @@ function BudgetsCardContainer({ budgets, onSelect, onClick, filters, onFilterCha
 
         <div className="addButton">
           <Action.Tray>
-            <Action.Add showText buttonText="+ Add new budget" onClick={onClick} />
+            <Action.Add
+              showText
+              buttonText="+ Add new budget"
+              onClick={onClick}
+            />
           </Action.Tray>
         </div>
       </div>
@@ -73,7 +82,11 @@ function BudgetsCardContainer({ budgets, onSelect, onClick, filters, onFilterCha
       ) : (
         <div className="budgetsCardContainer">
           {budgets.map((budget) => (
-            <BudgetsCard key={budget.BudgetID} budget={budget} onClick={() => onSelect(budget)} />
+            <BudgetsCard
+              key={budget.BudgetID}
+              budget={budget}
+              onClick={() => onSelect(budget)}
+            />
           ))}
         </div>
       )}
