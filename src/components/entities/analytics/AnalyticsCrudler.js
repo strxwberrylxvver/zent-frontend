@@ -5,10 +5,23 @@ import AnalyticsStatCard from "./AnalyticsStatCard.js";
 import AnalyticsBarChart from "./AnalyticsBarChart.js";
 import AnalyticsCategoryChart from "./AnalyticsCategoryChart.js";
 import AnalyticsGoalCard from "./AnalyticsGoalCard.js";
-import AnalyticsEmptyState from "./AnalyticsEmptyState.js";
+import EmptyState from "../../UI/EmptyState.js";
 import "./AnalyticsCrudler.css";
 
-const MONTH_LABELS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTH_LABELS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 function useAnalyticsData(transactions, goals) {
   return useMemo(() => {
@@ -18,11 +31,19 @@ function useAnalyticsData(transactions, goals) {
 
     const thisMonth = transactions.filter((t) => {
       const d = new Date(t.Date);
-      return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+      return (
+        d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()
+      );
     });
 
-    const totalSpend = transactions.reduce((s, t) => s + Math.abs(Number(t.Amount)), 0);
-    const monthSpend = thisMonth.reduce((s, t) => s + Math.abs(Number(t.Amount)), 0);
+    const totalSpend = transactions.reduce(
+      (s, t) => s + Math.abs(Number(t.Amount)),
+      0
+    );
+    const monthSpend = thisMonth.reduce(
+      (s, t) => s + Math.abs(Number(t.Amount)),
+      0
+    );
     const avgTx = transactions.length ? totalSpend / transactions.length : 0;
 
     const monthlyMap = {};
@@ -36,7 +57,10 @@ function useAnalyticsData(transactions, goals) {
       const key = MONTH_LABELS[d.getMonth()];
       if (key in monthlyMap) monthlyMap[key] += Math.abs(Number(t.Amount));
     });
-    const monthly = Object.entries(monthlyMap).map(([label, value]) => ({ label, value }));
+    const monthly = Object.entries(monthlyMap).map(([label, value]) => ({
+      label,
+      value,
+    }));
 
     const categoryMap = {};
     transactions.forEach((t) => {
@@ -64,12 +88,17 @@ function AnalyticsCrudler() {
 
   return (
     <section className="analyticsPage">
-      <div className="analyticsHeader">
-      </div>
+      <div className="analyticsHeader"></div>
 
       {isLoading && <p className="analyticsLoadingText">Loading your data…</p>}
 
-      {isEmpty && <AnalyticsEmptyState />}
+      {isEmpty && (
+        <EmptyState
+          icon="🌱"
+          title="Nothing to show yet"
+          message="Add some transactions and savings goals to start seeing your analytics."
+        />
+      )}
 
       {!isLoading && !isEmpty && data && (
         <>
@@ -77,11 +106,16 @@ function AnalyticsCrudler() {
             <AnalyticsStatCard
               label="This Month"
               value={fmt(data.monthSpend)}
-              sub={`${transactions.filter((t) => {
-                const d = new Date(t.Date);
-                const now = new Date();
-                return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-              }).length} transactions`}
+              sub={`${
+                transactions.filter((t) => {
+                  const d = new Date(t.Date);
+                  const now = new Date();
+                  return (
+                    d.getMonth() === now.getMonth() &&
+                    d.getFullYear() === now.getFullYear()
+                  );
+                }).length
+              } transactions`}
               accent="#8fbc8f"
             />
             <AnalyticsStatCard
@@ -98,7 +132,9 @@ function AnalyticsCrudler() {
             <AnalyticsStatCard
               label="Active Goals"
               value={goals.length}
-              sub={`${goals.filter((g) => g.SavedAmount >= g.TargetAmount).length} completed`}
+              sub={`${
+                goals.filter((g) => g.SavedAmount >= g.TargetAmount).length
+              } completed`}
               accent="#66bb6a"
             />
           </div>
