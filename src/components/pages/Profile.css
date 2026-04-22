@@ -1,9 +1,7 @@
 .profilePage {
-    padding: 24px;
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   }
   
   .profileHero {

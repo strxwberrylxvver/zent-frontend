@@ -1,11 +1,8 @@
 .sharedBillsPage {
-  padding: 24px;
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .sbPageHeader h1 {
   font-family: "Jersey10", sans-serif;
   font-size: 32px;
