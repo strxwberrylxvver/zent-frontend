@@ -89,9 +89,9 @@ function GoalsCardContainer({ goals, onSelect, onAdd, filters, onFilterChange, o
 
       {goals.length === 0 ? (
         isFiltered ? (
-          <EmptyState icon="🔍" title="No results" message="No goals match your current filters." />
+          <EmptyState title="No results" message="No goals match your current filters." />
         ) : (
-          <EmptyState icon="🎯" title="No savings goals yet" message="Create a goal to start tracking your progress towards something." />
+          <EmptyState title="No savings goals yet" message="Create a goal to start tracking your progress towards something." />
         )
       ) : (
         <div className="goalsCardContainer">

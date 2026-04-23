@@ -14,16 +14,19 @@ function Layout(props) {
 
   return (
     <div className="app-container">
-      <aside className={sidebarOpen ? "sidebar open" : "sidebar closed"}>
-        <Header />
-        <NavBar />
-        <button className="sidebar-toggle" onClick={toggleSidebar}>
-          {sidebarOpen ? "<" : ">"}
-        </button>
-      </aside>
-      <div
-        className={sidebarOpen ? "main-wrapper open" : "main-wrapper closed"}
-      >
+      {user && (
+        <aside className={sidebarOpen ? "sidebar open" : "sidebar closed"}>
+          <Header />
+          <NavBar />
+          <button className="sidebar-toggle" onClick={toggleSidebar}>
+            {sidebarOpen ? "<" : ">"}
+          </button>
+        </aside>
+      )}
+      <div className={user
+        ? sidebarOpen ? "main-wrapper open" : "main-wrapper closed"
+        : "main-wrapper full"
+      }>
         <main>
           {user && <TopBar />}
           {props.children}

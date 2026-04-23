@@ -25,13 +25,11 @@ export default function TransactionForm({
   const { user } = useAuth();
   const isEdit = Boolean(initialTransaction.TransactionID);
 
-  // For editing, derive the type from the stored amount sign
   const initialType = initialTransaction.Amount < 0 ? "expense" : "income";
   const [type, setType] = useState(isEdit ? initialType : "expense");
 
   const [transaction, setTransaction] = useState({
     ...initialTransaction,
-    // Show the absolute value in the input
     Amount: initialTransaction.Amount ? Math.abs(parseFloat(initialTransaction.Amount)) : "",
   });
 
@@ -78,7 +76,6 @@ export default function TransactionForm({
     e.preventDefault();
     if (!validateAll()) return;
 
-    // Apply sign based on type toggle
     const signedAmount = type === "expense"
       ? -Math.abs(parseFloat(transaction.Amount))
       :  Math.abs(parseFloat(transaction.Amount));
@@ -104,7 +101,6 @@ export default function TransactionForm({
   return (
     <form className="BorderedForm" onSubmit={handleSubmit}>
 
-      {/* Income / Expense toggle */}
       <div className="typeToggle">
         <button
           type="button"
