@@ -8,10 +8,13 @@ import BudgetsCardContainer from "./BudgetsCardContainer.js";
 import Action from "../../UI/Actions.js";
 import BudgetGauge from "./BudgetGauge";
 import BudgetRecentTransactions from "./BudgetRecentTransactions";
-import useFilters, { buildQueryString, currentMonth } from "../../api/useFilters.js";
+import useFilters, {
+  buildQueryString,
+  currentMonth,
+} from "../../api/useFilters.js";
 import "./BudgetsCrudler.css";
 
-function BudgetsCrudler({ endpoint, showTitle = true }) {
+function BudgetsCrudler({ transactionsEndpoint, endpoint, showTitle = true }) {
   const { filters, setFilter, reset } = useFilters({ month: currentMonth() });
   const filteredEndpoint = endpoint + buildQueryString(filters);
 
@@ -19,10 +22,18 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
   const [showDetails, , openDetails, closeDetails] = useModal(false);
   const [selectedBudget, setSelectedBudget] = useState(null);
   const [mode, setMode] = useState("add");
-  const [transactions] = useLoad("/transactions");
+  const [transactions] = useLoad(transactionsEndpoint);
 
-  const handleAdd = () => { setSelectedBudget(null); setMode("add"); openDetails(); };
-  const handleSelect = (budget) => { setSelectedBudget(budget); setMode("view"); openDetails(); };
+  const handleAdd = () => {
+    setSelectedBudget(null);
+    setMode("add");
+    openDetails();
+  };
+  const handleSelect = (budget) => {
+    setSelectedBudget(budget);
+    setMode("view");
+    openDetails();
+  };
   const handleCancel = () => closeDetails();
   const handleSuccess = async () => {
     closeDetails();
@@ -52,14 +63,22 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
               <Modal
                 show={showDetails}
                 title={
-                  mode === "add"    ? <h2>Add new budget</h2>
-                  : mode === "view" ? <h2>Budget details</h2>
-                  : mode === "edit" ? <h2>Edit budget</h2>
-                  : <h2>Delete budget</h2>
+                  mode === "add" ? (
+                    <h2>Add new budget</h2>
+                  ) : mode === "view" ? (
+                    <h2>Budget details</h2>
+                  ) : mode === "edit" ? (
+                    <h2>Edit budget</h2>
+                  ) : (
+                    <h2>Delete budget</h2>
+                  )
                 }
               >
                 {mode === "add" && (
-                  <BudgetsForm onCancel={handleCancel} onSuccess={handleSuccess} />
+                  <BudgetsForm
+                    onCancel={handleCancel}
+                    onSuccess={handleSuccess}
+                  />
                 )}
                 {mode === "view" && selectedBudget && (
                   <BudgetView
@@ -81,13 +100,18 @@ function BudgetsCrudler({ endpoint, showTitle = true }) {
                   <>
                     <p>Are you sure you want to delete this budget?</p>
                     <Action.Tray>
-                      <Action.Yes showText onClick={async () => {
-                        await API.delete(`/savingsgoals/${selectedBudget.BudgetID}`);
-                        await loadBudgets(filteredEndpoint);
-                        closeDetails();
-                        setSelectedBudget(null);
-                        setMode("add");
-                      }} />
+                      <Action.Yes
+                        showText
+                        onClick={async () => {
+                          await API.delete(
+                            `/savingsgoals/${selectedBudget.BudgetID}`
+                          );
+                          await loadBudgets(filteredEndpoint);
+                          closeDetails();
+                          setSelectedBudget(null);
+                          setMode("add");
+                        }}
+                      />
                       <Action.No showText onClick={() => setMode("view")} />
                     </Action.Tray>
                   </>
