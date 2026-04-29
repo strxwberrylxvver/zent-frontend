@@ -104,7 +104,7 @@ function BudgetsCrudler({ transactionsEndpoint, endpoint, showTitle = true }) {
                         showText
                         onClick={async () => {
                           await API.delete(
-                            `/savingsgoals/${selectedBudget.BudgetID}`
+                            `/budgets/${selectedBudget.BudgetID}`
                           );
                           await loadBudgets(filteredEndpoint);
                           closeDetails();
