@@ -4,6 +4,8 @@ import "../../global.css";
 function Budgets() {
   const {user} = useAuth();
   const budgetsendpoint = `/budgets/users/${user?.userID}`;
+  const transactionsEndpoint = `/transactions/users/${user?.userID}`;
+
   return (
     <section>
       <section className="budgetsPageView">
@@ -11,7 +13,7 @@ function Budgets() {
         <div className="caption">
           <p>Create and keep track of your budgets</p>
         </div>
-        <BudgetsCrudler endpoint={budgetsendpoint} />
+        <BudgetsCrudler endpoint={budgetsendpoint} transactionsEndpoint={transactionsEndpoint} />
       </section>
     </section>
   );
